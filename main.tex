@@ -332,8 +332,67 @@ libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
 luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt
 tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. 
 
-\section{Conclusion}
-TODO
+\section{Discussion: Is There a Future for HRI Simulation?}
+
+
+\paragraph*{The next steps}
+
+Several noteworthy developments related to HRI are currently shaping up in the
+MORSE community. We outline below some of them, that suggest new applications we
+believe relevant to HRI research.
+
+A first line of investigation relates to the procedural generation of a variety
+of realistic human models. {\sc MakeHuman} is such an open-source tool that
+generates anatomically, kinetically and visually realistic human models
+(Figure~\ref{fig:makehuman}. This software has a tight integration with Blender,
+and MORSE is soon to provide as well seamless integration with {\sc MakeHuman}
+models. This would provide a wide range of characters to feed the simulations,
+and extend testing environments with gender/size/age/skin color variances.  For
+this feature to reach its full potential, {\sc MakeHuman} should however be
+extended to support programmatic generation of models, since the graphical user
+interface is currently required.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=.9\columnwidth]{figs/makehuman.png}
+  \caption{Procedural generation of human models with {\sc MakeHuman}.}
+  \label{fig:makehuman}
+\end{figure}
+
+In a related field, automatic generation of crowds and associated human
+behaviours is currently worked on in the frame of the STRANDS project.
+[...add more details on the expected outcomes]
+
+Another line of investigation looks at embedding the human into the robotic
+simulation. The purpose of such efforts is to provide a life-like immersive
+simulation environment that would allow at the same time ecologically valid
+human behaviours and repeatable, lightweight interaction settings.
+In~\cite{lemaignan2012morse}, we presented how a human agent could interact with
+a virtual robot through a gestual interface based on a Kinect. While arm
+movements and small displacement (in a 2-3m\textsuperscript{2} zone) could be fairly
+accurately transposed from the physical world to the simulation, the overall
+interaction was not immersive (no head tracking, limited, non-dynamic field of
+view on a TV screen, no sound). Two distinct projects are currently looking into
+extending this line of research, one (at Bielefield University) aiming at
+integrating emerging Virtual Reality devices (like Occulus Rift) with MORSE, the
+other one (MarDI project) developing a virtual reality cave, that include 360°
+projections and spatialized sound.
+
+People like Alami also suggested that the \emph{on-line} deployment of HRI
+simulations could efficiently support large scale HRI studies. The simulator and
+specific interaction scenarii would be embedded in a dedicated webpage and users
+would control a human avatar from their webbrowsers. This would potentially
+enable collection of large behavioural datasets. While MORSE development in
+that direction has yet to start, it can be noted that the Gazebo simulator
+already features a limited WebGL client, that act as a proof-of-concept.
+
+These examples and ideas hopefully give a picture of the lively landscape of the
+``Simulation for HRI'' community that has built itself around the MORSE
+simulator. Much remains to be imagined and achieved, and yet MORSE is already
+deployed in several institutions as a platform that efficiently supports
+research in human-robot interaction. As an open-source project, we strive for
+new use-cases and ideas, and warmly welcome researchers that would like to join
+the effort.
 
 \section*{Acknowledgment}
 TODO
