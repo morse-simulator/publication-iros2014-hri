@@ -75,11 +75,11 @@ software architectures on complex hardware, simulators are also known to evade
 many (if not most) of the very real issues that robots need to manage when they
 enter the real world.  Because humans are the paragon of dynamic, unpredictable,
 complex, real world entities, simulation of human-robot interactions may look
-condemn to fail, or, in the best case, to be largely useless.  This collective
-article reports on five unrelated and actually very different applications of
-the MORSE simulator related to human-robot interaction: It appears that
-simulation is already useful (and even essential in some case) to successfully
-carry out research in the field of HRI, be it for not-so-expected reasons.
+condemn to fail, or, in the best case, to be mostly useless.  This collective
+article reports on five unrelated and actually different applications of the
+MORSE simulator related to human-robot interaction: It appears that simulation
+is already useful (and even essential in some case) to successfully carry out
+research in the field of HRI, be it for not-so-expected reasons.
 
 \end{abstract}
 
@@ -89,12 +89,14 @@ carry out research in the field of HRI, be it for not-so-expected reasons.
 
 % We should def. list a few requirements here, based on our experience
 
+
+
 This article attempts to provide feedback from field experiences with simulation
 for human-robot interaction. The originality of this contribution lies into its
-collective nature. We report here contributions and experiences from five
+collective nature: we report here contributions and experiences from five
 unrelated projects, conducted by different people in different universities and
-research institutes. These projects share however one common tool: they all use
-the MORSE simulator as simulation platform.
+research institutes, only sharing the MORSE simulator as common simulation
+platform.
 
 The sections~\ref{scenario1} to~\ref{scenario5} present each of these projects,
 and try to shed some light on the positive outcomes of deploying simulation
@@ -103,13 +105,41 @@ simulation of human-robot interaction still faces.
 
 \subsection*{HRI and simulation}
 
+
+Simulation in robotics often focuses on simulation of either low-level physical
+properties (physics simulation, kinematics, perception with fake cameras, laser
+scanners, etc.) or macroscopic behaviours (in particular, collective
+behaviours). Simulators like Gazebo, VRep, Webots, OpenGrasp \fixme{add refs}
+primarly belong to the first category, while tools like Stage \fixme{other
+ones...} are used with multi-robot interaction.
+
+However, simulation is seldom applied to human-robot interaction contexts, and
+only few publications report on successful deployments of simulators for HRI.
+We can mention Lewis\etal~\cite{lewis2007usarsim}, who present how they relied
+on {\sc USARSim} to carry on HRI experiments, but only focused on
+teleoperation: it did not involve robots having to interact itself with another
+human.  Hirth\etal~\cite{hirth2013development} used simulation to design and
+implement a shared human-robot task (based on tangram solving). They note that
+simulation enables reproducible experimental conditions which are traditionally
+difficult to enforce in HRI.
+
+Chernova\etal~\cite{Chernova2011} propose a different yet related perspective:
+they deploy an on-line game where two \emph{humans} play together, one being a
+human in the game, while the other one plays a robot. They record the resulting
+interaction to crowd-source natural human-robot interactions. This is no
+\textit{per-se} robotic simulation (no robot software is involved in the game),
+but suggest an interesting application of simulated \emph{on-line} HRI.
+
+\fixme{anything else?? there must be...!}
+
 % Also mention the focus of simulation so far: Physics, Kinematics, Actuator simulation a human component
 % has been neglected to far See also Comment below for related work [flier] -->
 
 % Mention Gazebo "animated characters": http://gazebosim.org/wiki/Tutorials/intermediate/animated_characters 
-Other experiments using simulation have been carried to gather data for HRI
-\cite{Chernova2011}. However, these do not involve the actual robot software,
-and it is another human who takes the role of the robot.
+
+To our best knowledge, no robotic simulation package provide explicit support
+for human-robot interaction, and this is what is currently being built into the
+open-source MORSE project.
 
 \subsection*{HRI and the MORSE simulator}
 
