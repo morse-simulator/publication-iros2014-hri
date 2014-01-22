@@ -33,6 +33,9 @@
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{float}
+
+\usepackage[draft]{fixme}
+
 \graphicspath{{figs/}}
 \newcommand{\eg}{{\textit{e.g.~}}}
 \newcommand{\etal}{{\textit{et al.~}}}
@@ -105,6 +108,14 @@ simulation of human-robot interaction still faces.
 
 \subsection*{HRI and simulation}
 
+\begin{figure}[ht!]
+      \centering
+      \includegraphics[width=0.9\linewidth]{morse_pr2.jpg}
+      \caption{A PR2 and a human avatar in MORSE.}
+      \label{fig|morse-hri}
+\end{figure}
+
+
 
 Simulation in robotics often focuses on simulation of either low-level physical
 properties (physics simulation, kinematics, perception with fake cameras, laser
@@ -115,15 +126,15 @@ ones...} are used with multi-robot interaction.
 
 However, simulation is seldom applied to human-robot interaction contexts, and
 only few publications report on successful deployments of simulators for HRI.
-We can mention Lewis\etal~\cite{lewis2007usarsim}, who present how they relied
+We can mention Lewis~\etal\cite{lewis2007usarsim}, who present how they relied
 on {\sc USARSim} to carry on HRI experiments, but only focused on
 teleoperation: it did not involve robots having to interact itself with another
-human.  Hirth\etal~\cite{hirth2013development} used simulation to design and
+human.  Hirth~\etal\cite{hirth2013development} used simulation to design and
 implement a shared human-robot task (based on tangram solving). They note that
 simulation enables reproducible experimental conditions which are traditionally
 difficult to enforce in HRI.
 
-Chernova\etal~\cite{Chernova2011} propose a different yet related perspective:
+Chernova~\etal\cite{Chernova2011} propose a different yet related perspective:
 they deploy an on-line game where two \emph{humans} play together, one being a
 human in the game, while the other one plays a robot. They record the resulting
 interaction to crowd-source natural human-robot interactions. This is no
@@ -160,13 +171,6 @@ MORSE relies on the advanced 3D (OpenGL shaders) and physics simulation ({\sc
 Bullet} physics engine) capabilities of the Blender \emph{Game Engine}, a
 real-time 3D runtime integrated to the open-source Blender modeling toolkit.
 This allows for semi-realistic simulation of complex environments.
-
-\begin{figure}[t]
-      \centering
-      \includegraphics[width=0.9\linewidth]{morse_pr2.jpg}
-      \caption{A PR2 and a human avatar in MORSE.}
-      \label{fig|morse-hri}
-\end{figure}
 
 The MORSE components (sensors and actuators) exchange data with the robotics
 software via middleware bindings (\emph{Software In The Loop} architecture).
