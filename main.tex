@@ -158,29 +158,48 @@ The five projects that are presented in this article all rely on the Modular
 OpenRobots Simulation Engine (MORSE)~\cite{Echeverria2011, morse_simpar_2012} as
 simulation platform (figure~\ref{fig|morse-hri}). We briefly recap the main
 MORSE features in this section, and kindly suggest the interested readers to
-refer to the aforementioned reference or to the MORSE
+refer to the aforementioned references or to the MORSE
 website\footnote{\url{http://morse-simulator.github.io}} for details.
 
 MORSE is a open-source tool developed for academic robotic research with
-contribution from over 15 institutions worldwide. It is a domain independent
+contributions from over 15 institutions worldwide. It is a domain independent
 simulator, where virtual robots can interact with a 3D environment, using
 sensors and actuators that behave in the same way as their counterparts in the
 real world.
 
-MORSE relies on the advanced 3D (OpenGL shaders) and physics simulation ({\sc
-Bullet} physics engine) capabilities of the Blender \emph{Game Engine}, a
-real-time 3D runtime integrated to the open-source Blender modeling toolkit.
-This allows for semi-realistic simulation of complex environments.
+MORSE relies on the Blender \emph{Game Engine}, a real-time 3D runtime
+integrated to the open-source Blender modeling toolkit, for advanced 3D (OpenGL
+shaders) and physics simulation ({\sc Bullet} physics engine). This allows for
+semi-realistic simulation of complex environments.
 
 The MORSE components (sensors and actuators) exchange data with the robotics
 software via middleware bindings (\emph{Software In The Loop} architecture).
-Middlewares supported in the current version include ROS and YARP, as well as a
-socket-based raw protocol. This design allows in principle to use the same
-software in both the real robots and the simulator. Instructions given to the
-robot are interpreted in the simulator to provide the control of actuators, such
-as the motion of the robot and its arms.  The data from simulated sensors is
-sent back through the middlewares, \eg exporting the images from cameras, or the
-positions of the robot, human and other objects of interest.
+Four robotic middlewares are currently supported, including ROS and YARP, as
+well as a generic socket-based protocol. This design aims at providing a
+seamless experience when switching back and forth between the simulator and the
+real robot. As expected for a versatile robotic simulator, a set of standard
+robotic platforms, actuators and sensors (more than 50 so-called components) is
+provided and enables fast creation of simulation scenarii, while custom
+components can be added via Blender (for the 3D design) and Python (for the
+behaviours).
+
+Two MORSE features stand out. First, MORSE has been primarily designed to be
+used in a command-line environment, and only features a minimal (and fully
+optional) graphical user interface. This makes MORSE mainly targeted to an
+academic audience, where efficiency and lightness prevail. For instance,
+simulation scenes are actually short Python programs, well suited for sharing
+and versioning. This also eases the integration of the simulator into larger
+development workflows, and MORSE has been, for instance,  successfully
+integrated into several continuous integration systems (Travis, Jenkins).
+
+Second, MORSE has a concept of \emph{realism level}: sensors and actuators may
+expose several levels of abstraction, corresponding to different level of
+physical accuracy. For instance, users may choose if the odometry sensor returns
+only a curvilinear distance, a $dX, dY, dZ$ differential vector, or the absolute
+position of the robot (integrated odometry). This allows users that are testing
+low-level components to do so, while users working at a higher abstraction level
+do not have to run a full robotic software stack to get the position of the
+robot.
 
 MORSE also provides several features focused on human-robot
 interaction~\cite{lemaignan2012morse} [...]
