@@ -294,24 +294,38 @@ users.
   \label{fig:simulated-desktop-scenes}
 \end{figure}
 
-\subsection{Scenario IV}
+\subsection{Situation Assement for HRI and Simulated Feedback}
 \label{scenario4}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
-eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
-montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
-imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate
-eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac,
-enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
-viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam
-ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper
-libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
-luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt
-tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. 
+When studying Human-Robot Interaction, understanding the environment in which
+agents will interact is a key issue. As mentionned before, manual testing on
+physical systems is labour-intensive and request expensive equipement.
+In our case, the main interest is robot's situation assessment that is performed 
+by our software SPARK (SPAtial Reasoning and Knowledge). MORSE gives a simulated 
+environnement which is then analysed in SPARK to generate geometric and symbolic
+ facts. The robot is updating its knowledge in SPARK using its own position,
+human position and objects seen throught semantic cameras. The data communication 
+toward SPARK is made using pocolibs middleware. The robot actions are controled 
+from python using pymorse
+interface\footnote{\url{http://www.openrobots.org/morse/doc/latest/pymorse.html}}.
+In this particular scenario, the human is sitting in a couch and talk to the
+robot to ask it to bring a specific object that may be in an other room.
+To put the simulation as close as possible to reality, we simulated our testing
+area which is a furnished indoor flat(Figure~\ref{fig|spark}).
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=0.9\linewidth]{morsespark.png}
+      \caption{Running SPARK with MORSE}
+      \label{fig|spark}
+\end{figure}
+
+Having this simulation with MORSE human helps to colaborate on a project
+In the French national project MaRDi\footnote{\url{http://mardi.metz.supelec.fr}},
+our partners are also using MORSE simulation to test their software and collect 
+data with the same environement in there laboratory.
+They can train their dialogue system using MORSE feedback to test if the robot
+did the correct actions.
 
 \subsection{Scenario V}
 \label{scenario5}
