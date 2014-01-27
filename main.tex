@@ -231,19 +231,22 @@ An Expectations Framework for Domestic Robot Assistants
 Data Acquisition through Automatic Scene Generation
 Situation Assessment for HRI and Simulated Feedback
 
-\subsection{Situation Assement for HRI and Simulated Feedback}
+\subsection{Situation Assessment for HRI and Simulated Feedback}
 \label{sc:assessment}
 
+%   1- why simulation is useful/needed for your use-case
 When studying Human-Robot Interaction, understanding the environment in which
-agents will interact is a key issue. As mentionned before, manual testing on
-physical systems is labour-intensive and request expensive equipement.
+agents will interact is a key issue. As mentioned before, manual testing on
+physical systems is labor-intensive and request expensive equipment.
 In our case, the main interest is robot's situation assessment that is performed 
-by our software SPARK (SPAtial Reasoning and Knowledge). MORSE gives a simulated 
-environnement which is then analysed in SPARK to generate geometric and symbolic
- facts. The robot is updating its knowledge in SPARK using its own position,
-human position and objects seen throught semantic cameras. The data communication 
-toward SPARK is made using pocolibs middleware. The robot actions are controled 
-from python using pymorse
+by our software SPARK (SPAtial Reasoning and Knowledge). 
+
+%   2- is it satisfactory or not
+MORSE gives a simulated environment which is then analyzed in SPARK
+to generate geometric and symbolic facts. The robot is updating its knowledge
+in SPARK using its own position, human position and objects seen through
+semantic cameras. The data communication toward SPARK is made using pocolibs
+middleware. The robot actions are controlled from python using pymorse
 interface\footnote{\url{http://www.openrobots.org/morse/doc/latest/pymorse.html}}.
 In this particular scenario, the human is sitting in a couch and talk to the
 robot to ask it to bring a specific object that may be in an other room.
@@ -257,12 +260,17 @@ area which is a furnished indoor flat(Figure~\ref{fig|spark}).
       \label{fig|spark}
 \end{figure}
 
-Having this simulation with MORSE human helps to colaborate on a project
+%   3- what is good and could be useful to other researcher
+Having this simulation with MORSE human helps to collaborate on a project.
 In the French national project MaRDi\footnote{\url{http://mardi.metz.supelec.fr}},
 our partners are also using MORSE simulation to test their software and collect 
-data with the same environement in there laboratory.
-They can train their dialogue system using MORSE feedback to test if the robot
+data with the same environment in there laboratory.
+They can train their dialog system using MORSE feedback to test if the robot
 did the correct actions.
+
+% 4- Future work
+Having a standard actuator for robot's microphone and speakers using sound
+propagation model would be an interesting improvement for our simulation.
 
 \subsection{An Expectations Framework for Domestic Robot Assistants}
 \label{sc:expectations}
