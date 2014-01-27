@@ -232,7 +232,7 @@ Data Acquisition through Automatic Scene Generation
 Situation Assessment for HRI and Simulated Feedback
 
 \subsection{Situation Assement for HRI and Simulated Feedback}
-\label{scenario4}
+\label{sc:assessment}
 
 When studying Human-Robot Interaction, understanding the environment in which
 agents will interact is a key issue. As mentionned before, manual testing on
@@ -265,7 +265,7 @@ They can train their dialogue system using MORSE feedback to test if the robot
 did the correct actions.
 
 \subsection{An Expectations Framework for Domestic Robot Assistants}
-\label{scenario2}
+\label{sc:expectations}
 
 In this scenario, an apartment is simulated in which a domestic service robot is
 living together with a person. The robot is controlled via ROS and the CRAM
@@ -302,7 +302,7 @@ to gain insights about our approach, detect weak points and make improvements.
 
 
 \subsection{Data Acquisition through Automatic Scene Generation}
-\label{scenario3}
+\label{sc:generation}
 
 Autonomous mobile robots that are to help and assist people in care homes,
 households, and at other workplaces have to understand how activities performed
@@ -342,7 +342,7 @@ users.
 
 
 \subsection{Automated Execution of Prototype HRI Experiments}
-\label{scenario1}
+\label{sc:ci}
 
 \emph{Use-Case:} In Human-Robot Interaction studies, robots often indicate
 behavioral variability that may influence the experiment's final outcome.
@@ -445,6 +445,27 @@ simulation for HRI and hopefully provide new benchmark for Morse.
 
 \section{Discussion: Is There a Future for HRI Simulation?}
 
+The five scenarii that are presented here cover a range of use-cases. Using a
+simulator to provide a reference environment with repeatable conditions (as in
+scenarii~\ref{sc:assessment} and~\ref{sc:expectations}) is the expected role of
+a simulator. MORSE simply provides additional tools to represent and control
+humans, either in perfectly repeatable ways (by pre-programming the human
+behaviour) or in less repeatable but also more realistic ways (in the
+``first-person shooter'' mode).
+
+But other use-cases emerge: data synthesis and acquisition for complex and
+dynamic human environments (scenario~\ref{sc:generation}), collaboration between
+universities over human-robot interaction situations
+(scenario~\ref{sc:assessment}), and automatic testing of robotic softwares that
+involve humans (scenario~\ref{sc:ci}).
+
+These diverse use-cases support the idea that simulation is not only actually
+useful as a support tool for development of human-robot applications, but may
+even become a cornerstone of good practises in robotic development. Continuous
+Integration comes to mind, and while HRI experiments are considered as
+notoriously difficult to deploy, test and repeat, we show here that our recent
+progresses in software engineering may enable automatic testing of more and more
+complex scenarii.
 
 \paragraph*{The next steps}
 
