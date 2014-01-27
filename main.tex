@@ -163,14 +163,14 @@ website\footnote{\url{http://morse-simulator.github.io}} for details.
 
 MORSE is a open-source tool developed for academic robotic research with
 contributions from over 15 institutions worldwide. It is a domain independent
-simulator, where virtual robots can interact with a 3D environment, using
+simulator where virtual robots can interact with a 3D environment, using
 sensors and actuators that behave in the same way as their counterparts in the
 real world.
 
 MORSE relies on the Blender \emph{Game Engine}, a real-time 3D runtime
-integrated to the open-source Blender modeling toolkit, for advanced 3D (OpenGL
-shaders) and physics simulation ({\sc Bullet} physics engine). This allows for
-semi-realistic simulation of complex environments.
+integrated to the open-source Blender modeling toolkit, both for advanced 3D
+(OpenGL shaders) and physics simulation (based on the {\sc Bullet} physics
+engine). This allows for semi-realistic simulation of complex environments.
 
 The MORSE components (sensors and actuators) exchange data with the robotics
 software via middleware bindings (\emph{Software In The Loop} architecture).
@@ -180,48 +180,45 @@ seamless experience when switching back and forth between the simulator and the
 real robot. As expected for a versatile robotic simulator, a set of standard
 robotic platforms, actuators and sensors (more than 50 so-called components) is
 provided and enables fast creation of simulation scenarii, while custom
-components can be added via Blender (for the 3D design) and Python (for the
-behaviours).
+components can be added via Python (for the behaviours) and Blender (for the 3D
+design).
 
 Two MORSE features stand out. First, MORSE has been primarily designed to be
 used in a command-line environment, and only features a minimal (and fully
 optional) graphical user interface. This makes MORSE mainly targeted to an
-academic audience, where efficiency and lightness prevail. For instance,
-simulation scenes are actually short Python programs, well suited for sharing
-and versioning. This also eases the integration of the simulator into larger
-development workflows, and MORSE has been, for instance,  successfully
-integrated into several continuous integration systems (Travis, Jenkins).
+academic audience, where efficiency and lightness prevail.  Simulation scenes
+are actually short Python programs, thus well suited for sharing and versioning.
+This also eases the integration of the simulator into larger development
+workflows, and MORSE is successfully integrated into several continuous
+integration systems (Travis, Jenkins).
 
-Second, MORSE has a concept of \emph{realism level}: sensors and actuators may
+Second, MORSE has a concept of \emph{abstraction levels}: sensors and actuators may
 expose several levels of abstraction, corresponding to different level of
 physical accuracy. For instance, users may choose if the odometry sensor returns
 only a curvilinear distance, a $dX, dY, dZ$ differential vector, or the absolute
 position of the robot (integrated odometry). This allows users that are testing
 low-level components to do so, while users working at a higher abstraction level
-do not have to run a full robotic software stack to get the position of the
-robot.
+do not have to run the full robotic software stack to get the position of the
+robot, and thus benefit of a lighter environment. This feature can be finely
+controlled, on a per-component basis.
 
-MORSE also provides several features focused on human-robot
-interaction~\cite{lemaignan2012morse} [...]
+MORSE also provides several features focused on human-robot interaction. It
+offers a human avatar that can be fully controlled (displacement, gaze, grasping
+of objects, interactions with the environment like turning lights on, opening
+drawers, doors...) in a first-person-shooter style. This enables the researcher
+to quickly setup and test human-robot interactions with a tele-operated human
+model, hence with realistic human behaviours. Also of interest, and as presented
+in~\cite{lemaignan2012morse}, the human avatar can be controlled from a
+Kinect-like device.
 
-\section{Scenarios}
-% Explain this section and introduce all use-cases
+The same avatar can also be programmatically controlled by external scripts, as
+any robot in MORSE. With standard MORSE actuators like the \emph{waypoint} actuator,
+the researcher can for instance pre-define paths that the human avatar will
+follow in the simulator.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
-eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
-montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
-imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate
-eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac,
-enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
-viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam
-ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper
-libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
-luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt
-tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. 
+\section{HRI Simulation : Five Scenarios}
+
+
 
 \subsection{Automated Execution of Prototype HRI Experiments}
 \label{scenario1}
