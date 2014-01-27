@@ -216,7 +216,128 @@ any robot in MORSE. With standard MORSE actuators like the \emph{waypoint} actua
 the researcher can for instance pre-define paths that the human avatar will
 follow in the simulator.
 
+
+
 \section{HRI Simulation : Five Scenarios}
+
+[...]
+
+The presentation of each of these scenarii follows the same structure: first,
+the use-case is introduced.
+
+
+Automated Execution of Prototype HRI Experiments
+An Expectations Framework for Domestic Robot Assistants
+Data Acquisition through Automatic Scene Generation
+Situation Assessment for HRI and Simulated Feedback
+
+\subsection{Situation Assement for HRI and Simulated Feedback}
+\label{scenario4}
+
+When studying Human-Robot Interaction, understanding the environment in which
+agents will interact is a key issue. As mentionned before, manual testing on
+physical systems is labour-intensive and request expensive equipement.
+In our case, the main interest is robot's situation assessment that is performed 
+by our software SPARK (SPAtial Reasoning and Knowledge). MORSE gives a simulated 
+environnement which is then analysed in SPARK to generate geometric and symbolic
+ facts. The robot is updating its knowledge in SPARK using its own position,
+human position and objects seen throught semantic cameras. The data communication 
+toward SPARK is made using pocolibs middleware. The robot actions are controled 
+from python using pymorse
+interface\footnote{\url{http://www.openrobots.org/morse/doc/latest/pymorse.html}}.
+In this particular scenario, the human is sitting in a couch and talk to the
+robot to ask it to bring a specific object that may be in an other room.
+To put the simulation as close as possible to reality, we simulated our testing
+area which is a furnished indoor flat(Figure~\ref{fig|spark}).
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=0.9\linewidth]{morsespark.png}
+      \caption{Running SPARK with MORSE}
+      \label{fig|spark}
+\end{figure}
+
+Having this simulation with MORSE human helps to colaborate on a project
+In the French national project MaRDi\footnote{\url{http://mardi.metz.supelec.fr}},
+our partners are also using MORSE simulation to test their software and collect 
+data with the same environement in there laboratory.
+They can train their dialogue system using MORSE feedback to test if the robot
+did the correct actions.
+
+\subsection{An Expectations Framework for Domestic Robot Assistants}
+\label{scenario2}
+
+In this scenario, an apartment is simulated in which a domestic service robot is
+living together with a person. The robot is controlled via ROS and the CRAM
+reactive plan language \cite{beetz2010cram}, which is used on many real robots
+as well \cite{pancakes11humanoids}. The robots' duty is to observe the person
+performing different activities and detect unexpected situations based on the
+validation of different types of expectations \cite{Karg2013}. The detection of
+such unexpected behavior can help future domestic service robots to better
+assess situations and adapt their actions to human behavior. For this example,
+the use of the MORSE simulator enabled us to set up a large, realistic testbed
+by combining realistic robot control via the ROS middleware with the
+unpredictability of human behavior using the human component of MORSE. Setting
+up of such an apartment in a real-world setting would together with a suitable
+sensor setup and a reliable robot control would not only introduce huge costs
+but would also be a time-consuming task which can distract researchers from
+their actual research focus. The use of the simulated scenario enables us to
+gain many insights into the problem domain in a scenario that would not been
+possible within our project and ultimately led to the successful validation of
+the approach in a spatially limited real-world scenario.
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=0.9\linewidth]{morse_apartment.png}
+      \caption{A simulated apartment with a domestic service robot and a person.}
+      \label{fig|apartment}
+\end{figure}
+
+The human component of MORSE enabled us to test and validate our approach
+dynamically in a variety of situations. Since it can be controlled in real-time
+like in a 3D computer game while at the same time, a robot can be simulated by
+state-of-the-art components, it is possible to generate a multitude of
+situations on which the robot has to react. This greatly supported our project
+to gain insights about our approach, detect weak points and make improvements.
+
+
+\subsection{Data Acquisition through Automatic Scene Generation}
+\label{scenario3}
+
+Autonomous mobile robots that are to help and assist people in care homes,
+households, and at other workplaces have to understand how activities performed
+by humans affect the dynamics of objects in the environment. That is, they need
+to know, when, where and how people manipulate objects and how they arrange and
+structure them in space.
+
+Within the STRANDS project\footnote{\url{http://www.strands-project.eu}} we are
+generally aiming at understanding long-term, spatio-temporal relationships of
+objects and activities of people. In the scenario described in this paper, we
+looked in particular at learning qualitative spatial relations of objects on
+office desks. As an accurate classification and pose estimation of objects on
+real-world office desks is still a challenging and difficult task for current
+robot perception systems we acquired a data set of object arrangements using
+the MORSE simulator. For this, we first bootstrapped an object statistics from
+manually labeled images of real office desks, and secondly, automatically
+generated a set of physically possible desktop scenes (see
+Figure~\ref{fig:simulated-desktop-scenes}, \cite{kunze14bootstrapping}). Based
+on the generated data we learned relational models of object arrangements on
+desks. The learnt models enable a robot to predict the position of an object
+given a landmark. We employed these models to effectively guide a real robot in
+object search tasks \cite{kunze14indirect} and evaluated its performance. The
+automatic generation of object arrangements in simulation is not only useful
+for the acquisition of data, but also for increasing the variability of scenes
+in Human-Robot experiments in general. In future work we plan to use the
+generated desktop scenes in web-applications to crowdsource Natural Language
+descriptions of object arrangements and commands for robots from Internet
+users.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=.9\columnwidth]{figs/scenes.png}
+  \caption{Automatically generated scenes of office desks.}
+  \label{fig:simulated-desktop-scenes}
+\end{figure}
 
 
 
@@ -269,113 +390,6 @@ control, abstraction ...
 
 \emph{Future requirements} Walking cycle, Pre-recorded activities (grasp,
 loose), more than standing up, event based actions
-
-\subsection{An Expectations Framework for Domestic Robot Assistants}
-\label{scenario2}
-
-In this scenario, an apartment is simulated in which a domestic service robot is
-living together with a person. The robot is controlled via ROS and the CRAM
-reactive plan language \cite{beetz2010cram}, which is used on many real robots
-as well \cite{pancakes11humanoids}. The robots' duty is to observe the person
-performing different activities and detect unexpected situations based on the
-validation of different types of expectations \cite{Karg2013}. The detection of
-such unexpected behavior can help future domestic service robots to better
-assess situations and adapt their actions to human behavior. For this example,
-the use of the MORSE simulator enabled us to set up a large, realistic testbed
-by combining realistic robot control via the ROS middleware with the
-unpredictability of human behavior using the human component of MORSE. Setting
-up of such an apartment in a real-world setting would together with a suitable
-sensor setup and a reliable robot control would not only introduce huge costs
-but would also be a time-consuming task which can distract researchers from
-their actual research focus. The use of the simulated scenario enables us to
-gain many insights into the problem domain in a scenario that would not been
-possible within our project and ultimately led to the successful validation of
-the approach in a spatially limited real-world scenario.
-
-\begin{figure}[H]
-      \centering
-      \includegraphics[width=0.9\linewidth]{morse_apartment.png}
-      \caption{A simulated apartment with a domestic service robot and a person.}
-      \label{fig|apartment}
-\end{figure}
-
-The human component of MORSE enabled us to test and validate our approach
-dynamically in a variety of situations. Since it can be controlled in real-time
-like in a 3D computer game while at the same time, a robot can be simulated by
-state-of-the-art components, it is possible to generate a multitude of
-situations on which the robot has to react. This greatly supported our project
-to gain insights about our approach, detect weak points and make improvements.
-
-\subsection{Data Acquisition through Automatic Scene Generation}
-\label{scenario3}
-
-Autonomous mobile robots that are to help and assist people in care homes,
-households, and at other workplaces have to understand how activities performed
-by humans affect the dynamics of objects in the environment. That is, they need
-to know, when, where and how people manipulate objects and how they arrange and
-structure them in space.
-
-Within the STRANDS project\footnote{\url{http://www.strands-project.eu}} we are
-generally aiming at understanding long-term, spatio-temporal relationships of
-objects and activities of people. In the scenario described in this paper, we
-looked in particular at learning qualitative spatial relations of objects on
-office desks. As an accurate classification and pose estimation of objects on
-real-world office desks is still a challenging and difficult task for current
-robot perception systems we acquired a data set of object arrangements using
-the MORSE simulator. For this, we first bootstrapped an object statistics from
-manually labeled images of real office desks, and secondly, automatically
-generated a set of physically possible desktop scenes (see
-Figure~\ref{fig:simulated-desktop-scenes}, \cite{kunze14bootstrapping}). Based
-on the generated data we learned relational models of object arrangements on
-desks. The learnt models enable a robot to predict the position of an object
-given a landmark. We employed these models to effectively guide a real robot in
-object search tasks \cite{kunze14indirect} and evaluated its performance. The
-automatic generation of object arrangements in simulation is not only useful
-for the acquisition of data, but also for increasing the variability of scenes
-in Human-Robot experiments in general. In future work we plan to use the
-generated desktop scenes in web-applications to crowdsource Natural Language
-descriptions of object arrangements and commands for robots from Internet
-users.
-
-\begin{figure}[tb]
-  \centering
-  \includegraphics[width=.9\columnwidth]{figs/scenes.png}
-  \caption{Automatically generated scenes of office desks.}
-  \label{fig:simulated-desktop-scenes}
-\end{figure}
-
-\subsection{Situation Assement for HRI and Simulated Feedback}
-\label{scenario4}
-
-When studying Human-Robot Interaction, understanding the environment in which
-agents will interact is a key issue. As mentionned before, manual testing on
-physical systems is labour-intensive and request expensive equipement.
-In our case, the main interest is robot's situation assessment that is performed 
-by our software SPARK (SPAtial Reasoning and Knowledge). MORSE gives a simulated 
-environnement which is then analysed in SPARK to generate geometric and symbolic
- facts. The robot is updating its knowledge in SPARK using its own position,
-human position and objects seen throught semantic cameras. The data communication 
-toward SPARK is made using pocolibs middleware. The robot actions are controled 
-from python using pymorse
-interface\footnote{\url{http://www.openrobots.org/morse/doc/latest/pymorse.html}}.
-In this particular scenario, the human is sitting in a couch and talk to the
-robot to ask it to bring a specific object that may be in an other room.
-To put the simulation as close as possible to reality, we simulated our testing
-area which is a furnished indoor flat(Figure~\ref{fig|spark}).
-
-\begin{figure}[H]
-      \centering
-      \includegraphics[width=0.9\linewidth]{morsespark.png}
-      \caption{Running SPARK with MORSE}
-      \label{fig|spark}
-\end{figure}
-
-Having this simulation with MORSE human helps to colaborate on a project
-In the French national project MaRDi\footnote{\url{http://mardi.metz.supelec.fr}},
-our partners are also using MORSE simulation to test their software and collect 
-data with the same environement in there laboratory.
-They can train their dialogue system using MORSE feedback to test if the robot
-did the correct actions.
 
 \subsection{Preliminary Testing of Human-Aware Navigation Planner}
 \label{scenario5}
