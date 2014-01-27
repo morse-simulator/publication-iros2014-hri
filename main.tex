@@ -380,24 +380,57 @@ data with the same environement in there laboratory.
 They can train their dialogue system using MORSE feedback to test if the robot
 did the correct actions.
 
-\subsection{Scenario V}
+\subsection{Preliminary Testing of Human-Aware Navigation Planner}
 \label{scenario5}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
-eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
-montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
-imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate
-eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac,
-enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
-viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam
-ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper
-libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
-luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt
-tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. 
+%   1- why simulation is useful/needed for your use-case
+Development of human-robot interaction algorithms often require iterative
+process of prototyping, testing and reviewing. Setting up and experiment and
+testing of robot navigation algorithms especially for large environments
+involving humans is time consuming and is subject to availability of lab
+resources while working in a shared lab between different groups of
+researchers. A simulation environment like Morse which implements required robot
+model, PR2 robot in our case, and simulates human agents is of great help here.
+
+%   2- is it satisfactory or not
+To evaluate the improvements in the human-aware navigation planner developed at
+LAAS we carried out a user study. For the user study an experiment was set up,
+where a robot encounters a human crossing its path (at $90^{\circ }$ angle to
+each other) while the robot is moving forward to its navigation goal. For
+preliminary testing of the planning algorithm, our lab areas was simulated in
+Morse as shown in figure ~\ref{fig|hanp}. This simulated environment was
+extensively used to review the algorithm before it was deployed on the PR2 robot
+to carry out real-world
+experiments. % should include refrence to the results paper here?
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=0.9\linewidth]{morsehanp.png}
+      \caption{Navigation test with MORSE}
+      \label{fig|hanp}
+\end{figure}
+
+%   3- what is good and could be useful to other researcher
+Full support of the PR2 robot model among others, availability of a human model,
+and a convenient way of setting up experiment environment using Blender software
+were the most prominent features for choosing Morse as the simulation
+environment for these experiments. Since Morse already provides ROS bindings for
+the PR2 robot and human pose it requires minimal effort to switch between
+real-world and simulated environments.
+%   4- what is missing both at the technical level (things that could be added
+%      to MORSE) and at a more fundamental level (things where simulation do
+%      not fit)
+% technical: there is no full human posture as /tf topic for ros
+%            morse as a ros-package
+% fundamental: implementing human behaviors? e.g. crowd simulation
+
+% future use of morse
+As a consortium member in the EU project
+SPENCER\footnote{\url{http://www.spencer.eu}}, we are interested in developing
+novel algorithms for robot navigation in large populated environements,
+e.g. airports. In the future we plan to use Morse to simulate such large
+environment with multiple human models. This will certainly push the limits of
+simulation for HRI and hopefully provide new benchmark for Morse.
 
 \section{Discussion: Is There a Future for HRI Simulation?}
 
