@@ -404,6 +404,7 @@ users.
 \subsection{Automated Execution of Prototype HRI Experiments}
 \label{sc:ci}
 
+% 1 - why simulation is useful/needed for your use-case
 \emph{Use-Case:} In Human-Robot Interaction studies, robots often indicate
 behavioral variability that may influence the experiment's final outcome.
 However, manual testing on physical systems is usually the only way to prevent
@@ -437,7 +438,9 @@ that extracts the location of a specific entity in the simulation environment.
 The semantic camera is attached to the robot. If the human enters the robot's
 field of view, the location is reported and sent via middleware. After each CI
 run, the recorded movement trajectory of the human avatar is assessed (plotted)
-and archived. We have explicitly chosen to simplify the extraction of the
+and archived. 
+% 2 - is it satisfactory or not
+We have explicitly chosen to simplify the extraction of the
 human's location to acquire a ground truth in the first iterations of the
 simulation. Based on the ground truth, we are able to exchange diverse
 components, i.e., the semantic camera with a simulated laser scanner
@@ -445,11 +448,25 @@ components, i.e., the semantic camera with a simulated laser scanner
 to build a person hypothesis for instance, thus gradually develop, assess and
 implement more complex scenarios. 
 
-\emph{Contribution} The interactive avatar, semantic cam was extremely useful to
-control, abstraction ...
-
-\emph{Future requirements} Walking cycle, Pre-recorded activities (grasp,
-loose), more than standing up, event based actions
+%3 - usefulness
+\emph{Usefulness:} First of all, the interactive (remotely controllable) human avatar 
+is useful to include a dynamic, yet not too realistic, human component in this 
+setup, which currently is a rare feature in the world of simulators. Secondly, 
+the level of abstraction of different sensors, i.e., semantic camera versus virtual 
+laser scanner enables us to gradually raise the level of complexity/realism and 
+test different algorithms based on abstract and almost realistic sensor inputs. 
+Lastly, the chance to deploy MORSE in a Continuous Integration environment, i.e., 
+automatically run ``builder scripts'' \footnote{\url{http://www.openrobots.org/morse/doc/latest/dev/builder.html}}
+generates an additional benefit.
+ 
+%4 - missing features
+\emph{Missing features:} To be even more useful, simulators and thus MORSE, must
+feature a realistic ``walking cycle'' for human components. This is especially
+important if laser scans are used to build a person hypothesis. Additionally, the
+human avatar should feature (remotely) triggered ``actions'', e.g., grasping a 
+predefined object, sit down on a chair/sofa or open a door. Lastly, audio support, 
+i.e., Text-to-Speech output for the human component would significantly increase
+the usability to assess algorithms which rely on multimodal inputs.  
 
 \section{Discussion: Is There a Future for HRI Simulation?}
 
