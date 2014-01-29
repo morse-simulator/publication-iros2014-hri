@@ -275,16 +275,17 @@ propagation model would be an interesting improvement for our simulation.
 \subsection{An Expectations Framework for Domestic Robot Assistants}
 \label{sc:expectations}
 
-In this scenario, an apartment is simulated in which a domestic service robot is
-living together with a person. The robot is controlled via ROS and the CRAM
-reactive plan language \cite{beetz2010cram}, which is used on many real robots
-as well \cite{pancakes11humanoids}. The robots' duty is to observe the person
-performing different activities and detect unexpected situations based on the
-validation of different types of expectations \cite{Karg2013}. The detection of
-such unexpected behavior can help future domestic service robots to better
-assess situations and adapt their actions to human behavior. For this example,
-the use of the MORSE simulator enabled us to set up a large, realistic testbed
-by combining realistic robot control via the ROS middleware with the
+\emph{Use case:} In this scenario, an apartment is simulated in which a domestic 
+service robot is living together with a person as shown in figure \ref{fig|apartment}. 
+A PR2 robot is controlled via ROS and the CRAM reactive plan language \cite{beetz2010cram}, 
+which is used on many real robots as well \cite{pancakes11humanoids}. The robots' 
+duty is to observe the person performing different activities and detect unexpected 
+situations based on the validation of different types of expectations \cite{Karg2013}. 
+The detection of such unexpected behavior can help future domestic service robots 
+to better assess situations and adapt their actions to human behavior. 
+
+\emph{Contribution:} The use of the MORSE simulator enabled us to set up a large, 
+realistic testbed by combining realistic robot control via the ROS middleware with the
 unpredictability of human behavior using the human component of MORSE. Setting
 up of such an apartment in a real-world setting would together with a suitable
 sensor setup and a reliable robot control would not only introduce huge costs
@@ -307,6 +308,15 @@ like in a 3D computer game while at the same time, a robot can be simulated by
 state-of-the-art components, it is possible to generate a multitude of
 situations on which the robot has to react. This greatly supported our project
 to gain insights about our approach, detect weak points and make improvements.
+
+\emph{Future requirements:} While the game-like control of the human avatar 
+successfully enabled us to simulate simple actions like picking and placing objects, 
+opening doors and using light switches, actions that require find-grained control 
+of the arms and hands are not yet possible. For instance, when trying to set a table for 
+diner, it is often not possible to accurately place objects like cutlery. Also, the human
+avatar is currently restricted to using one arm which is unrealistic in activities 
+like table setting, where humans often use both arms for pick- and place actions.
+ 
 
 \subsection{Preliminary Testing of Human-Aware Navigation Planner}
 \label{sc:navigation}
