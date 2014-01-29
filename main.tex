@@ -364,17 +364,16 @@ simulation for HRI and hopefully provide new benchmark for Morse.
 \subsection{Data Acquisition through Automatic Scene Generation}
 \label{sc:generation}
 
-Autonomous mobile robots that are to help and assist people in care homes,
-households, and at other workplaces have to understand how activities performed
-by humans affect the dynamics of objects in the environment. That is, they need
-to know, when, where and how people manipulate objects and how they arrange and
-structure them in space.
-
-Within the STRANDS project\footnote{\url{http://www.strands-project.eu}} we are
-generally aiming at understanding long-term, spatio-temporal relationships of
-objects and activities of people. In the scenario described in this paper, we
-looked in particular at learning qualitative spatial relations of objects on
-office desks. As an accurate classification and pose estimation of objects on
+\emph{Use-Case:} Autonomous mobile robots that are to help and assist people in
+care homes, households, and at other workplaces have to understand how human
+activities affect the dynamics of objects in the environment. That is, robots
+need to know, when, where and how people manipulate objects and how they
+arrange and structure them in space. In the context of the STRANDS
+project\footnote{\url{http://www.strands-project.eu}} we aim for robots that
+understand the long-term, spatio-temporal relationships of objects and
+activities of people. In the scenario described in this paper, we looked in
+particular at learning qualitative spatial relations of objects on office
+desks. As an accurate classification and pose estimation of objects on
 real-world office desks is still a challenging and difficult task for current
 robot perception systems we acquired a data set of object arrangements using
 the MORSE simulator. For this, we first bootstrapped an object statistics from
@@ -382,15 +381,34 @@ manually labeled images of real office desks, and secondly, automatically
 generated a set of physically possible desktop scenes (see
 Figure~\ref{fig:simulated-desktop-scenes}, \cite{kunze14bootstrapping}). Based
 on the generated data we learned relational models of object arrangements on
-desks. The learnt models enable a robot to predict the position of an object
-given a landmark. We employed these models to effectively guide a real robot in
-object search tasks \cite{kunze14indirect} and evaluated its performance. The
-automatic generation of object arrangements in simulation is not only useful
-for the acquisition of data, but also for increasing the variability of scenes
-in Human-Robot experiments in general. In future work we plan to use the
-generated desktop scenes in web-applications to crowdsource Natural Language
-descriptions of object arrangements and commands for robots from Internet
-users.
+desks. The learnt models enabled a robot to predict the position of an object
+given a landmark. We employed these models to effectively guide a simulated and
+a real robot in object search tasks and evaluated its performance
+\cite{kunze14indirect}.
+
+\emph{Usefulness:} Firstly, the automatic scene generation and annotation of
+object arrangements in simulation is useful for the acquisition of large
+amounts of data over short periods of time. The generated data enabled us to
+design, implement and to evaluate our methods for predicting object locations
+before having a real-world data set in place. Secondly, the generation of
+object arrangements can increase the variability of scenes in Human-Robot
+experiments in general. Given the dynamics of objects in the real world it is
+important not to oversimplify Human-Robot experiments in simulated environments
+but make them as realistic as possible (in a controlled way). Finally, in
+future work, we plan to use the generated desktop scenes in web-applications to
+crowdsource Natural Language descriptions of object arrangements and commands
+for robots from Internet users.
+
+\emph{Missing features:} The default installation of MORSE already includes a
+fair set of pre-modeled objects. However, these objects are spread over
+different environments and lack a coherent definition with respect to their
+reference frame, bounding box, and/or scale. A desirable feature would be that
+objects are kept in a global or some domain specific object databases and that
+they are modeled in a consistent way. This would ease the usage of different
+types of objects and thereby allow users and researchers to focus on their
+goals. Also the addition and/or removal of objects at run-time would be a nice
+feature as a running MORSE instance could be used more flexible, for example,
+as a robot's belief state.
 
 \begin{figure}[tb]
   \centering
@@ -398,7 +416,6 @@ users.
   \caption{Automatically generated scenes of office desks.}
   \label{fig:simulated-desktop-scenes}
 \end{figure}
-
 
 
 \subsection{Automated Execution of Prototype HRI Experiments}
