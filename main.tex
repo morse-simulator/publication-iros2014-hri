@@ -35,6 +35,7 @@
 \usepackage{float}
 
 \usepackage[draft]{fixme}
+\usepackage{todonotes}
 
 \graphicspath{{figs/}}
 \newcommand{\eg}{{\textit{e.g.~}}}
@@ -92,7 +93,7 @@ research in the field of HRI, be it for not-so-expected reasons.
 Simulation of human-robot interaction is a challenge: it lies at the crossroad
 of \emph{robotic simulation} (which brings in requirements like physical
 accuracy, low latencies, high bandwidth, integration within complex software
-architectures) and \emph{virtual agents simulation} (which also brings in its
+architectures) and \emph{embodied virtual agents} (which also brings in its
 own requirements like realistic human kinematics and visual rendering, complex
 behaviours, rich user interface). And at the same time, a simulator is in
 essence a \emph{tool}: in order \emph{not} to stand in the way of our day to day
@@ -114,52 +115,50 @@ and try to shed some light on both the positive outcomes of deploying simulation
 environments for HRI, and the pitfalls and more fundamental issues that
 simulation of human-robot interaction still faces.
 
-
 \subsection*{HRI and simulation}
 
 \begin{figure}[ht!]
-      \centering
+      \centering 
       \includegraphics[width=0.9\linewidth]{morse_pr2.jpg}
       \caption{A PR2 and a human avatar in MORSE.}
       \label{fig|morse-hri}
 \end{figure}
 
+In the robotics domain, classical simulators focus either on low-level physical
+aspects (realistic motion, kinematics, perception from scene rendering, etc.) 
+or macroscopic behaviours (in particular, collective behaviours). For an overview
+of recent work, we refer the interested reader to~\cite{Ando2010}. While many
+of these could--in principle--be used for HRI, only few of them have been.
 
+Most notably, in the domain of Unmanned Search And Rescue (USAR), a common
+simulator platform called USARSim (Lewis~\etal\cite{lewis2007usarsim}) is widely
+used and has been applied in many HRI studies. A limitation common to all of 
+these, however, is that only tele-operation, not situated interaction, is 
+studied.
 
-Simulation in robotics often focuses on simulation of either low-level physical
-properties (physics simulation, kinematics, perception with fake cameras, laser
-scanners, etc.) or macroscopic behaviours (in particular, collective
-behaviours). Simulators like Gazebo, VRep, Webots, OpenGrasp \fixme{add refs}
-primarly belong to the first category, while tools like Stage \fixme{other
-ones...} are used with multi-robot interaction.
+All robotics-oriented simulators, including both USARSim and Morse, that
+support displaying human agents at all, require the developer to specify the
+agents' behavior externally. Morse is, arguably, slightly more advanced in its
+control interface for humans (see below for details), but we would be the first
+to admit that the functionality provided is (currently) fairly basic.
 
-However, simulation is seldom applied to human-robot interaction contexts, and
-only few publications report on successful deployments of simulators for HRI.
-We can mention Lewis~\etal\cite{lewis2007usarsim}, who present how they relied
-on {\sc USARSim} to carry on HRI experiments, but only focused on
-teleoperation: it did not involve robots having to interact itself with another
-human.  Hirth~\etal\cite{hirth2013development} used simulation to design and
-implement a shared human-robot task (based on tangram solving). They note that
-simulation enables reproducible experimental conditions which are traditionally
-difficult to enforce in HRI.
+In contrast, current work on embodied virtual agents (EVA) usually provides 
+higher-level functionality, such as simulated emotion dynamics, behavior 
+generation based on action primitives, conversational dialogue systems, and
+up to cognitive simulations. However, integrating these into a coherent 
+system with an acceptable interface remains 
+challenging~\cite{gratch2002creating}. We do not think that general-purpose
+simulators will acquire any of these functions soon, but they could be
+capable of integrating external components that do, for example, by offering 
+an interface for the Behavior Markup Language~\cite{kopp2006towards} popular
+in the EVA community, or by exposing a (lower-level) 
+H-Anim\footnote{\url{http://www.h-anim.org/}} interface. H-Anim is already
+supported by Blender, Morses' foundation.
 
-Chernova~\etal\cite{Chernova2011} propose a different yet related perspective:
-they deploy an on-line game where two \emph{humans} play together, one being a
-human in the game, while the other one plays a robot. They record the resulting
-interaction to crowd-source natural human-robot interactions. This is no
-\textit{per-se} robotic simulation (no robot software is involved in the game),
-but suggest an interesting application of simulated \emph{on-line} HRI.
-
-\fixme{anything else?? there must be...!}
-
-% Also mention the focus of simulation so far: Physics, Kinematics, Actuator simulation a human component
-% has been neglected to far See also Comment below for related work [flier] -->
 
 % Mention Gazebo "animated characters": http://gazebosim.org/wiki/Tutorials/intermediate/animated_characters 
+% [Ingo] Actually, I don't like that approach. Why invent yet another interface? lets not mention it
 
-To our best knowledge, no robotic simulation package provide explicit support
-for human-robot interaction, and this is what is currently being built into the
-open-source MORSE project.
 
 \subsection*{HRI and the MORSE simulator}
 
@@ -503,6 +502,23 @@ human avatar should feature (remotely) triggered ``actions'', e.g., grasping a
 predefined object, sit down on a chair/sofa or open a door. Lastly, audio support, 
 i.e., Text-to-Speech output for the human component would significantly increase
 the usability to assess algorithms which rely on multimodal inputs.  
+
+\section{Related Work}
+
+Simulation in HRI draws from several parallel developments: Simulators
+of robots and physical environments, embodied virtual agents (including
+cognitive modeling), and computer graphics for scene and human modeling and
+rendering. Of these, computer graphics is least relevant for the current work,
+but it should be said that one of the advantages of using Blender as a basis
+is that it offers a compelling modeling environment for virtual environments. 
+Its capability is evidenced, for example, by several animation movies\footnote{See 
+\url{http://www.blender.org/features/projects/}}. For a more detailed 
+discussion of Morse's foundations, see~\cite{Echeverria2011}.
+
+\todo[inline]{now discuss usarsim, including the work on crowd and victim 
+simulation}
+
+\todo[inline]{look for relevant work in embodied virtual agents}
 
 \section{Discussion: Which Place for HRI Simulation?}
 
