@@ -91,21 +91,21 @@ research in the field of HRI, be it for not-so-expected reasons.
 
 Simulation of human-robot interaction is a challenge: it lies at the crossroad
 of \emph{robotic simulation} (which brings in requirements like physical
-accuracy, low latencies, high bandwith, integration within complex software
+accuracy, low latencies, high bandwidth, integration within complex software
 architectures) and \emph{virtual agents simulation} (which also brings in its
 own requirements like realistic human kinematics and visual rendering, complex
-behaviours, rich user interface).  At the same time, a simulator is in essence a
-\emph{tool}: in order \emph{not} to stand in the way of our day to day
+behaviours, rich user interface). And at the same time, a simulator is in
+essence a \emph{tool}: in order \emph{not} to stand in the way of our day to day
 development workflow, it must \emph{feel} lightweight, responsive, easy to setup
 and deploy.
 
 This paper presents how the Modular OpenRobots Simulation Engine
 (MORSE)~\cite{Echeverria2011, morse_simpar_2012} simulator attempts to address
-this challenge to eventually provide a convenient tool to support research in
+this challenge to eventually provide a convenient support for research in
 human-robot interaction. We first give a brief overview of the simulator with a
 focus on HRI-specific features, and then report on several ``real-world''
-applications.  These five case-studies illustrate the collective nature of this
-article: we report here contributions and experiences from five unrelated
+applications. These five case-studies illustrate the collective nature of this
+article: we report on contributions and experiences from five unrelated
 projects, conducted by different people in different universities and research
 institutes, only sharing the MORSE simulator as common simulation platform.
 
@@ -113,6 +113,7 @@ The sections~\ref{sc:assessment} to~\ref{sc:ci} present each of these projects,
 and try to shed some light on both the positive outcomes of deploying simulation
 environments for HRI, and the pitfalls and more fundamental issues that
 simulation of human-robot interaction still faces.
+
 
 \subsection*{HRI and simulation}
 
@@ -503,15 +504,19 @@ predefined object, sit down on a chair/sofa or open a door. Lastly, audio suppor
 i.e., Text-to-Speech output for the human component would significantly increase
 the usability to assess algorithms which rely on multimodal inputs.  
 
-\section{Discussion: Is There a Future for HRI Simulation?}
+\section{Discussion: Which Place for HRI Simulation?}
 
-The five scenarii that are presented here cover a range of use-cases. Using a
-simulator to provide a reference environment with repeatable conditions (as in
-scenarii~\ref{sc:assessment} and~\ref{sc:expectations}) is the expected role of
-a simulator. MORSE simply provides additional tools to represent and control
-humans, either in perfectly repeatable ways (by pre-programming the human
-behaviour) or in less repeatable but also more realistic ways (in the
-``first-person shooter'' mode).
+As researchers in HRI, we believe that simulation holds a rightful place, both as
+an efficient engineering support tool, and as a novel source of realistic yet
+repeatable (hence comparable) human inputs for our systems.
+
+The five scenarii that are presented here cover as such a range of use-cases.
+Using a simulator to provide a reference environment with repeatable conditions
+(as in scenarii~\ref{sc:assessment}, \ref{sc:expectations} and
+\ref{sc:navigation}) is the expected role of a simulator. MORSE simply provides
+additional tools to represent and control humans, either in perfectly repeatable
+ways (by pre-programming the human behaviour) or in less repeatable but also
+more realistic ways (in the ``first-person shooter'' mode).
 
 But other use-cases emerge: data synthesis and acquisition for complex and
 dynamic human environments (scenario~\ref{sc:generation}), collaboration between
@@ -520,12 +525,12 @@ universities over human-robot interaction situations
 involve humans (scenario~\ref{sc:ci}).
 
 These diverse use-cases support the idea that simulation is not only actually
-useful as a support tool for development of human-robot applications, but may
-even become a cornerstone of good practises in robotic development. Continuous
-Integration comes to mind, and while HRI experiments are considered as
-notoriously difficult to deploy, test and repeat, we show here that our recent
-progresses in software engineering may enable automatic testing of more and more
-complex scenarii.
+useful as a support tool for development of human-robot applications, but also
+\emph{enables} new development workflows in HRI. \emph{Continuous Integration}
+illustrates this point: while HRI experiments are considered as notoriously
+difficult to deploy, test and repeat, we show here that our recent progresses in
+software engineering enable automatic testing of more and more complex scenarii,
+including long-term interaction.
 
 %I think we are "not yet there" on any of these items, but that's where
 %we aim to go, and this could hopefully sketch/define a new toolset for
@@ -579,24 +584,33 @@ integrating emerging Virtual Reality devices (like Occulus Rift) with MORSE, the
 other one (MarDI project) developing a virtual reality cave, that include 360°
 projections and spatialized sound.
 
-People like Alami also suggested that the \emph{on-line} deployment of HRI
-simulations could efficiently support large scale HRI studies. The simulator and
-specific interaction scenarii would be embedded in a dedicated webpage and users
-would control a human avatar from their webbrowsers. This would potentially
-enable collection of large behavioural datasets. While MORSE development in
-that direction has yet to start, it can be noted that the Gazebo simulator
-already features a limited WebGL client, that act as a proof-of-concept.
+Also often suggested, the \emph{on-line} deployment of HRI simulations could
+efficiently support large scale HRI studies. The simulator and specific
+interaction scenarii would be embedded in a dedicated webpage and users would
+control a human avatar from their webbrowsers. This would potentially enable
+collection of large behavioural datasets. While MORSE development in that
+direction has yet to start, it can be noted that the Gazebo simulator already
+features a limited WebGL client, that act as a proof-of-concept.
+
+\paragraph*{To conclude}
 
 These examples and ideas hopefully give a picture of the lively landscape of the
-``Simulation for HRI'' community that has built itself around the MORSE
-simulator. Much remains to be imagined and achieved, and yet MORSE is already
-deployed in several institutions as a platform that efficiently supports
-research in human-robot interaction. As an open-source project, we strive for
-new use-cases and ideas, and warmly welcome researchers that would like to join
-the effort.
+``Simulation for HRI'' community, that has built itself around the MORSE
+simulator.
 
-\section*{Acknowledgment}
-TODO
+In the introduction, we mentioned how simulation in HRI had to address in
+parallel constraints stemming from \emph{robotic simulation} and \emph{virtual
+agent simulation}, while remaining a lightweight, easy-to-use tool. We are
+certainly not yet there, much remains to be imagined, refined and achieved. And
+yet MORSE is already deployed in several institutions as a platform that
+efficiently supports research in human-robot interaction. As an open-source
+project, we strive for new use-cases and ideas, and warmly welcome researchers
+that would like to join the effort.
+
+
+
+%\section*{Acknowledgment}
+%TODO
 
 \bibliographystyle{abbrv}
 \bibliography{main}
