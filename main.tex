@@ -90,20 +90,29 @@ research in the field of HRI, be it for not-so-expected reasons.
 
 \section{Introduction}
 
-% We should def. list a few requirements here, based on our experience
+Simulation of human-robot interaction is a challenge: it lies at the crossroad
+of \emph{robotic simulation} (which brings in requirements like physical
+accuracy, low latencies, high bandwith, integration within complex software
+architectures) and \emph{virtual agents simulation} (which also brings in its
+own requirements like realistic human kinematics and visual rendering, complex
+behaviours, rich user interface).  At the same time, a simulator is in essence a
+\emph{tool}: in order \emph{not} to stand in the way of our day to day
+development workflow, it must \emph{feel} lightweight, responsive, easy to setup
+and deploy.
 
-
-
-This article attempts to provide feedback from field experiences with simulation
-for human-robot interaction. The originality of this contribution lies into its
-collective nature: we report here contributions and experiences from five
-unrelated projects, conducted by different people in different universities and
-research institutes, only sharing the MORSE simulator as common simulation
-platform.
+This paper presents how the Modular OpenRobots Simulation Engine
+(MORSE)~\cite{Echeverria2011, morse_simpar_2012} simulator attempts to address
+this challenge to eventually provide a convenient tool to support research in
+human-robot interaction. We first give a brief overview of the simulator with a
+focus on HRI-specific features, and then report on several ``real-world''
+applications.  These five case-studies illustrate the collective nature of this
+article: we report here contributions and experiences from five unrelated
+projects, conducted by different people in different universities and research
+institutes, only sharing the MORSE simulator as common simulation platform.
 
 The sections~\ref{sc:assessment} to~\ref{sc:ci} present each of these projects,
-and try to shed some light on the positive outcomes of deploying simulation
-environments for HRI, as well as the pitfalls and more fundamental issues that
+and try to shed some light on both the positive outcomes of deploying simulation
+environments for HRI, and the pitfalls and more fundamental issues that
 simulation of human-robot interaction still faces.
 
 \subsection*{HRI and simulation}
@@ -154,8 +163,7 @@ open-source MORSE project.
 
 \subsection*{HRI and the MORSE simulator}
 
-The five projects that are presented in this article all rely on the Modular
-OpenRobots Simulation Engine (MORSE)~\cite{Echeverria2011, morse_simpar_2012} as
+The five projects that are presented in this article all rely on the MORSE as
 simulation platform (figure~\ref{fig|morse-hri}). We briefly recap the main
 MORSE features in this section, and kindly suggest the interested readers to
 refer to the aforementioned references or to the MORSE
@@ -518,6 +526,15 @@ Integration comes to mind, and while HRI experiments are considered as
 notoriously difficult to deploy, test and repeat, we show here that our recent
 progresses in software engineering may enable automatic testing of more and more
 complex scenarii.
+
+%I think we are "not yet there" on any of these items, but that's where
+%we aim to go, and this could hopefully sketch/define a new toolset for
+%future HRI research.
+%
+%- (automatic) testing of human-robot *interaction*, which is notoriously
+%difficult (in particular because human behaviours are mostly non
+%repeatable) (and until now, no simple solution exist for that)
+
 
 \paragraph*{The next steps}
 
