@@ -128,19 +128,30 @@ In the robotics domain, classical simulators focus either on low-level physical
 aspects (realistic motion, kinematics, perception from scene rendering, etc.) 
 or macroscopic behaviours (in particular, collective behaviours). For an overview
 of recent work, we refer the interested reader to~\cite{Ando2010}. While many
-of these could--in principle--be used for HRI, only few of them have been.
+of these could be used for HRI, only few of them have been.
 
 Most notably, in the domain of Unmanned Search And Rescue (USAR), a common
 simulator platform called USARSim (Lewis~\etal\cite{lewis2007usarsim}) is widely
-used and has been applied in many HRI studies. A limitation common to all of 
-these, however, is that only tele-operation, not situated interaction, is 
-studied.
+used and has been applied in many HRI studies, albeit so far only for 
+tele-operation. In tele-operation, the operator faces a (often custom) control 
+application that displays simulated sensor data. In contrast, the present work
+strives to integrate the human agent into the simulation more fully, 
+particularly including situated interaction, and also frequently makes use of
+external cameras.
 
+Note, however, that USARSim and Morse are quite similar technically, in that
+both are based on an underlying game engine (the Unreal Tournament Development
+Kit\footnote{\url{http://www.unrealengine.com/udk/}} and the Blender Game Engine\footnote{\url{http://wiki.blender.org/index.php/Doc:2.6/Manual/Game_Engine}}, respectively), which has been extended 
+with robot actuator and sensor models, and both support control through common
+middlewares. We prefer Morse for its fully open source approach, and some
+other technical differences (see next section for more details), but we believe
+that due to the overwhelming similarities most, if not all, requirements and/or
+conclusions identified would also apply to work using USARSim.
+
+Naturally, simulating human agents to a realistic degree is extremely hard.
 All robotics-oriented simulators, including both USARSim and Morse, that
 support displaying human agents at all, require the developer to specify the
-agents' behavior externally. Morse is, arguably, slightly more advanced in its
-control interface for humans (see below for details), but we would be the first
-to admit that the functionality provided is (currently) fairly basic.
+agents' behavior externally, thus side-stepping the problem.
 
 In contrast, current work on embodied virtual agents (EVA) usually provides 
 higher-level functionality, such as simulated emotion dynamics, behavior 
