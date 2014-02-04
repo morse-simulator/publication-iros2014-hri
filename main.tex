@@ -80,12 +80,10 @@ applications. These five case-studies illustrate the collective nature of this
 article: we report on contributions and experiences in human-robot interaction
 simulation from five unrelated projects, conducted by different people in
 different universities and research institutes, only sharing the MORSE simulator
-as common simulation platform.
-
-The sections~\ref{sc:assessment} to~\ref{sc:ci} present each of these projects,
-and try to shed some light on both the positive outcomes of deploying simulation
-environments for HRI, and the pitfalls and more fundamental issues that
-simulation of human-robot interaction still faces.
+as common simulation platform. The sections~\ref{sc:assessment} to~\ref{sc:ci}
+present each of these projects, and try to shed some light on both the positive
+outcomes of deploying simulation environments for HRI, and the pitfalls and more
+fundamental issues that simulation of human-robot interaction still faces.
 
 \subsection*{HRI and simulation}
 
@@ -113,12 +111,14 @@ external cameras.
 
 Note, however, that USARSim and MORSE are quite similar technically, in that
 both are based on an underlying game engine (the Unreal Tournament Development
-Kit\footnote{\url{http://www.unrealengine.com/udk/}} and the Blender Game Engine\footnote{\url{http://wiki.blender.org/index.php/Doc:2.6/Manual/Game_Engine}}, respectively), which has been extended 
-with robot actuator and sensor models, and both support control through common
-middlewares. We prefer MORSE for its fully open source approach, and some
-other technical differences (see next section for more details), but we believe
-that due to the overwhelming similarities most, if not all, requirements and/or
-conclusions identified would also apply to work using USARSim.
+Kit\footnote{\url{http://www.unrealengine.com/udk/}} and the Blender Game
+Engine\footnote{\url{http://wiki.blender.org/index.php/Doc:2.6/Manual/Game_Engine}},
+respectively), which has been extended with robot actuator and sensor models,
+and both support control through common middlewares. We prefer MORSE for its
+fully open source approach, and some other technical differences (see next
+section for more details), but we believe that due to the overwhelming
+similarities most, if not all, requirements and/or conclusions identified would
+also apply to work using USARSim.
 
 Naturally, simulating human agents to a realistic degree is hard.
 All robotics-oriented simulators, including both USARSim and MORSE, that
@@ -159,7 +159,6 @@ world. MORSE relies on the Blender \emph{Game Engine}, a real-time 3D runtime
 integrated to the open-source Blender modeling toolkit, both for advanced 3D
 (OpenGL shaders) and physics simulation (based on the {\sc Bullet} physics
 engine). This allows for semi-realistic simulation of complex environments.
-
 The MORSE components (sensors and actuators) exchange data with the robotics
 software via middleware bindings (\emph{Software In The Loop} architecture).
 Four robotic middlewares are currently supported, including ROS and YARP, as
@@ -196,12 +195,10 @@ turning lights on, opening drawers, doors...) in a first-person-shooter style.
 This enables the researcher to quickly setup and test human-robot interactions
 with a tele-operated human model, hence with realistic human behaviours. As
 presented in~\cite{lemaignan2012morse}, the human avatar can be controlled from
-a Kinect-like device.
-
-The same avatar can also be programmatically controlled by external scripts, as
-any robot in MORSE. With standard MORSE actuators like the \emph{waypoint}
-actuator, the researcher can for instance pre-define paths that the human avatar
-will follow in a simulated environment.
+a Kinect-like device.  The same avatar can also be programmatically controlled
+by external scripts, as any robot in MORSE. With standard MORSE actuators like
+the \emph{waypoint} actuator, the researcher can for instance pre-define paths
+that the human avatar will follow in a simulated environment.
 
 
 
@@ -219,11 +216,9 @@ shows how simulation is used as an alternate source of input to train robots to
 behave in human environments, and the last scenario, \emph{Automated Execution
 of Prototype HRI Experiments}, presents how the simulator can be used to provide
 automatic testing of human-aware behaviours, fully integrated to the software
-development workflow.
-
-Each of the presentations follow the same structure: we first introduce the
-scenario, we then higlight how simulation has been leveraged and its benefits,
-and we finally mention some of the shortcomings of the tool.
+development workflow. Each of the presentations follow the same structure: we
+first introduce the scenario, we then higlight how simulation has been leveraged
+and its benefits, and we finally mention some of the shortcomings of the tool.
 
 \subsection{Situation Assessment for HRI and Simulated Feedback}
 \label{sc:assessment}
@@ -248,14 +243,12 @@ may be in another room.
       \label{fig|spark}
 \end{figure}
 
-\emph{Benefits of the simulation} The direct benefits of relying on MORSE for the
-development of the situation assessment algorithms is the low-cost of deployment
-(manual testing on physical systems is labour-intensive), as well as the
-repeatability of the experimental conditions, important to assess the
-algorithmic improvements.
-
-Also, relying on MORSE effectively supports collaboration between the partners
-involved in this project (MaRDi
+\emph{Benefits of the simulation} The direct benefits of relying on MORSE for
+the development of the situation assessment algorithms is the low-cost of
+deployment (manual testing on physical systems is labour-intensive), as well as
+the repeatability of the experimental conditions, important to assess the
+algorithmic improvements.  Also, relying on MORSE effectively supports
+collaboration between the partners involved in this project (MaRDi
 project\footnote{\url{http://mardi.metz.supelec.fr}}): our partners are also
 using MORSE simulation to test their software and collect data with the same
 environment in their laboratory, where they focus on dialog processing. They can
@@ -337,14 +330,12 @@ algorithms often require iterative process of prototyping, testing and
 reviewing. Setting up and experiment and testing of robot navigation algorithms
 especially for large environments involving humans is time consuming and is
 subject to availability of lab resources while working in a shared lab between
-different groups of researchers. 
-
-Full support of the PR2 robot model among others, availability of a human model,
-and a convenient way of setting up experiment environment using Blender software
-were the most prominent features for choosing MORSE as the simulation
-environment for these experiments. Since MORSE already provides ROS bindings for
-the PR2 robot and human pose it requires minimal effort to switch between
-real-world and simulated environments.
+different groups of researchers. Full support of the PR2 robot model among
+others, availability of a human model, and a convenient way of setting up
+experiment environment using Blender software were the most prominent features
+for choosing MORSE as the simulation environment for these experiments. Since
+MORSE already provides ROS bindings for the PR2 robot and human pose it requires
+minimal effort to switch between real-world and simulated environments.
 
 As a consortium member in the EU project
 SPENCER\footnote{\url{http://www.spencer.eu}}, we plan to develop novel
@@ -447,19 +438,17 @@ abstraction until a satisfactory/sufficient degree of ``realism'' to make an
 assumption about real world behavior, is reached --- in an integrated and
 continuous approach. In order to achieve this goal, we make use of two essential
 MORSE features: \textit{a)} the human avatar that can be steered (set waypoints)
-interactively via middleware and \textit{b)} a \emph{semantic} camera
-that extracts the location of a specific entity in the simulation environment.
-The semantic camera is attached to the robot. If the human enters the robot's
-field of view, the location is reported and sent via middleware. After each CI
-run, the recorded movement trajectory of the human avatar is assessed (plotted)
-and archived. 
-
-We have explicitly chosen to simplify the extraction of the
-human's location to acquire a ground truth in the first iterations of the
+interactively via middleware and \textit{b)} a \emph{semantic} camera that
+extracts the location of a specific entity in the simulation environment.  The
+semantic camera is attached to the robot. If the human enters the robot's field
+of view, the location is reported and sent via middleware. After each CI run,
+the recorded movement trajectory of the human avatar is assessed (plotted) and
+archived. We have explicitly chosen to simplify the extraction of the location
+of the human to acquire a ground truth in the first iterations of the
 simulation. Based on the ground truth, we are able to exchange diverse
-components, \ie the semantic camera with a simulated laser scanner
-to build a person hypothesis for instance, thus gradually develop, assess and
-implement more complex scenarios. 
+components, \ie the semantic camera with a simulated laser scanner to build a
+person hypothesis for instance, thus gradually develop, assess and implement
+more complex scenarios. 
 
 \emph{Benefits of the simulation} First of all, the interactive (remotely
 controllable) human avatar is useful to include a dynamic, yet not too
@@ -492,14 +481,12 @@ Using a simulator to provide a reference environment with repeatable conditions
 simply provides additional tools to represent and control humans, either in
 perfectly repeatable ways (by pre-programming the human behaviour) or in less
 repeatable but also more realistic ways (in the ``first-person shooter'' mode).
-
 In these scenarii, simulation also appears useful to test a variety of different
 (controlled) conditions in rather complex environments, and makes it tractable
 even for individual PhD students. This would be hardly doable on a daily basis
-if it was to be conducted on real robots.
-
-Also mentioned, the simulator plays an important role in several international
-projects, where it is often the only way to share a common experimental setting.
+if it was to be conducted on real robots.  Also mentioned, the simulator plays
+an important role in several international projects, where it is often the only
+way to share a common experimental setting.
 
 Other, less obvious, use-cases for HRI simulation are also reported. The
 ``programmability'' of the simulator makes it a convenient tool for data
@@ -524,15 +511,13 @@ missing, and the ability to dynamically alter the simulated scene (in reaction
 to particular events, for instance) is also perceived as something important.
 Similarly, the human model(s) does not yet provide good enough accuracy, both at
 the level of the user interface (some actions can not be done with the
-interactive avatar), and at the simulation level (poor/missing walking
-cycles for instance). Finally, the overall convenience of MORSE for HRI could
-be improved, for instance by providing more assets (furnitures, objects,...)
-related to human environments.
-
-These issues, that are mostly technical and could be addressed at the software
-level, show that simulators dedicated to HRI application still need to mature.
-In that regard, the next section presents some of the directions that are
-currently researched.
+interactive avatar), and at the simulation level (poor/missing walking cycles
+for instance). Finally, the overall convenience of MORSE for HRI could be
+improved, for instance by providing more assets (furnitures, objects,...)
+related to human environments.  These issues, that are mostly technical and
+could be addressed at the software level, show that simulators dedicated to HRI
+application still need to mature.  In that regard, the next section presents
+some of the directions that are currently researched.
 
 \paragraph*{The next steps}
 
@@ -602,14 +587,12 @@ features a limited WebGL client, that act as a proof-of-concept.
 
 These examples and ideas hopefully give a picture of the lively landscape of the
 ``Simulation for HRI'' community, that has built itself around the MORSE
-simulator.
-
-In the introduction, we mentioned how simulation in HRI had to address in
-parallel constraints stemming from \emph{robotic simulation} and \emph{virtual
-agent simulation}, while remaining a lightweight, easy-to-use tool. We are
-certainly not yet there, much remains to be imagined, refined and achieved.
-Yet MORSE is already deployed in several institutions as a platform that
-efficiently supports research in human-robot interaction. As an open-source
+simulator.  In the introduction, we mentioned how simulation in HRI had to
+address in parallel constraints stemming from \emph{robotic simulation} and
+\emph{virtual agent simulation}, while remaining a lightweight, easy-to-use
+tool. We are certainly not yet there, much remains to be imagined, refined and
+achieved.  Yet MORSE is already deployed in several institutions as a platform
+that efficiently supports research in human-robot interaction. As an open-source
 project, we strive for new use-cases and ideas, and warmly welcome researchers
 that would like to join the effort.
 
