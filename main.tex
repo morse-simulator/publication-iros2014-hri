@@ -1,30 +1,3 @@
-%
-%  == Collective paper on MORSE for HRI ==
-%
-%
-% Editing of the article moves to GIT (Sharelatex does not expose the change history unless you
-% pay for it, so it's difficult to track changes and merge them with GIT).
-%
-% The repo is here:  https://github.com/morse-simulator/publication-iros2014-hri
-%
-%
-% The idea is: each of you present (in one section) its project, 
-% putting an emphasis on:
-%   1- why simulation is useful/needed for your use-case
-%   2- is it satisfactory or not
-%   3- what is good and could be useful to other researcher
-%   4- what is missing both at the technical level (things that could be added 
-%      to MORSE) and at a more fundamental level (things where simulation do 
-%      not fit)
-%
-% It would be great to have one nice screenshot per project.
-%
-% Then, Severin and Florian write a synthesis in the conclusion.
-%
-% Severin will also write a short introduction + presentation of MORSE for HRI
-%
-
-
 \documentclass[conference]{IEEEtran}
 
 % UTF8 support
@@ -239,14 +212,14 @@ sections five case-studies.  The first three scenarii, \emph{Situation
 Assessment for HRI and Simulated Feedback}, \emph{An Expectations Framework for
 Domestic Robot Assistants} and \emph{Preliminary Testing of Human-Aware
 Navigation Planner} illustrate the typically use-case for simulation: rather
-complex virutal environments are created where the human presence plays a
+complex virtual environments are created where the human presence plays a
 central role, and HRI algorithms are tested in a convenient and repeatable way.
 The fourth scenario, \emph{Data Acquisition through Automatic Scene Generation}
 shows how simulation is used as an alternate source of input to train robots to
 behave in human environments, and the last scenario, \emph{Automated Execution
 of Prototype HRI Experiments}, presents how the simulator can be used to provide
 automatic testing of human-aware behaviours, fully integrated to the software
-developement workflow.
+development workflow.
 
 Each of the presentations follow the same structure: we first introduce the
 scenario, we then higlight how simulation has been leveraged and its benefits,
@@ -278,7 +251,7 @@ may be in another room.
 \emph{Benefits of the simulation} The direct benefits of relying on MORSE for the
 development of the situation assessment algorithms is the low-cost of deployment
 (manual testing on physical systems is labour-intensive), as well as the
-repeatablity of the experimental conditions, important to assess the
+repeatability of the experimental conditions, important to assess the
 algorithmic improvements.
 
 Also, relying on MORSE effectively supports collaboration between the partners
@@ -520,20 +493,46 @@ simply provides additional tools to represent and control humans, either in
 perfectly repeatable ways (by pre-programming the human behaviour) or in less
 repeatable but also more realistic ways (in the ``first-person shooter'' mode).
 
-But other use-cases emerge: data synthesis and acquisition for complex and
-dynamic human environments (scenario~\ref{sc:generation}), collaboration between
-universities over human-robot interaction situations
-(scenario~\ref{sc:assessment}), and automatic testing of robotic softwares that
-involve humans (scenario~\ref{sc:ci}).
+In these scenarii, simulation also appears useful to test a variety of different
+(controlled) conditions in rather complex environments, and makes it tractable
+even for individual PhD students. This would be hardly doable on a daily basis
+if it was to be conducted on real robots.
+
+Also mentioned, the simulator plays an important role in several international
+projects, where it is often the only way to share a common experimental setting.
+
+Other, less obvious, use-cases for HRI simulation are also reported. The
+``programmability'' of the simulator makes it a convenient tool for data
+synthesis and acquisition in dynamic human environments
+(scenario~\ref{sc:generation}), the concept of \emph{abstraction levels} can be
+used to iteratively refine the algorithms, getting closer and closer to the
+actual sensors outputs (scenario~\ref{sc:ci}), and finally, automated testing of
+human-aware robotic softwares as presented in scenario~\ref{sc:ci} opens
+interesting perspectives to improve development workflows in HRI.
 
 These diverse use-cases support the idea that simulation is not only actually
 useful as a support tool for development of human-robot applications, but also
-\emph{enables} new development workflows in HRI. \emph{Continuous Integration}
+\emph{enables} new research techniques in HRI. \emph{Continuous Integration}
 illustrates this point: while HRI experiments are considered as notoriously
 difficult to deploy, test and repeat, we show here how a simulator may enable
-automatic testing of more and more complex scenarii, including long-term
+automated testing of more and more complex scenarii, including long-term
 interaction.
 
+Several issues are also raised. In its current state, the MORSE simulator
+provides only an incomplete model of the environment. Sounds/speech models are
+missing, and the ability to dynamically alter the simulated scene (in reaction
+to particular events, for instance) is also perceived as something important.
+Similarly, the human model(s) does not yet provide good enough accuracy, both at
+the level of the user interface (some actions can not be done with the
+interactive avatar), and at the simulation level (poor/missing walking
+cycles for instance). Finally, the overall convenience of MORSE for HRI could
+be improved, for instance by providing more assets (furnitures, objects,...)
+related to human environments.
+
+These issues, that are mostly technical and could be addressed at the software
+level, show that simulators dedicated to HRI application still need to mature.
+In that regard, the next section presents some of the directions that are
+currently researched.
 
 \paragraph*{The next steps}
 
@@ -581,7 +580,7 @@ simulation. The purpose of such efforts is to provide a life-like immersive
 simulation environment that would allow at the same time ecologically valid
 human behaviours and repeatable, lightweight interaction settings.
 In~\cite{lemaignan2012morse}, we presented how a human agent could interact with
-a virtual robot through a gestual interface based on a Kinect. While arm
+a virtual robot through a deictic interface based on a Kinect. While arm
 movements and small displacement (in a 2-3m\textsuperscript{2} zone) could be fairly
 accurately transposed from the physical world to the simulation, the overall
 interaction was not immersive (no head tracking, limited, non-dynamic field of
@@ -613,7 +612,6 @@ Yet MORSE is already deployed in several institutions as a platform that
 efficiently supports research in human-robot interaction. As an open-source
 project, we strive for new use-cases and ideas, and warmly welcome researchers
 that would like to join the effort.
-
 
 
 %\section*{Acknowledgment}
