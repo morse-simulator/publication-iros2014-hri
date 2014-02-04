@@ -575,8 +575,23 @@ interface is currently required.
   \label{fig:makehuman}
 \end{figure}
 
-Besides being able to control a human avatar in simulation programmatically and deterministically, the possibility to automatically generate believable and realistic human movement behaviours is being explored. In this context, the objective is to adopt technologies successfully deployed computer games in MORSE to generate trajectories that control the MORSE avatars.
-Based on the idea of \emph{social forces} \cite{helbing2001}, the work of \cite{Szymanezyk2012crowd} is to be adopted to provide believable and realistic movement of several humans within MORSE. The approach is based on a grid-based representation that computes forces for individual agents which are computed from combining information from other agents (e.g., taking into social distances and group forming into account), from the environment (e.g., implementing obstacle avoidance), and from a pre-defined set of goals individually defined for each agent. The resulting velocity vector for each agent can be directly interfaced with several instances of MORSE avatar to generate natural movement trajectories. This implementation can provide a more realistic and dynamic environment to study human-robot spatial interaction and to provide a testbed for human-aware motion planning, to give two exemplary use cases.
+Besides being able to control a human avatar in simulation programmatically and
+deterministically, the possibility to automatically generate believable and
+realistic crowd behaviours is being explored. In this context, the objective is
+to adopt technologies successfully deployed computer games in MORSE to generate
+trajectories that control the MORSE avatars.  Based on the idea of \emph{social
+forces}~\cite{helbing2001}, the work of~\cite{Szymanezyk2012crowd} is to be
+adopted to provide believable and realistic movement of several humans within
+MORSE. The approach is based on a grid-based representation that computes forces
+for individual agents which are computed from combining information from other
+agents (\eg taking social distances and group forming into account), from the
+environment (\eg implementing obstacle avoidance), and from a pre-defined set of
+goals individually defined for each agent. The resulting velocity vector for
+each agent can be directly interfaced with several instances of MORSE avatar to
+generate natural movement trajectories. This implementation can provide a more
+realistic and dynamic environment to study human-robot spatial interaction and
+to provide a testbed for human-aware motion planning, to give two exemplary use
+cases.
 
 Another line of investigation looks at embedding the human into the robotic
 simulation. The purpose of such efforts is to provide a life-like immersive
