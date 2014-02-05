@@ -113,8 +113,7 @@ Gazebo (Koenig and Howard~\cite{Koenig2004}).
 
 %Note, however, that USARSim and MORSE are quite similar technically, in that
 %both are based on an underlying game engine (the Unreal Tournament Development
-%Kit\footnote{\url{http://www.unrealengine.com/udk/}} and the Blender Game
-%Engine\footnote{\url{http://wiki.blender.org/index.php/Doc:2.6/Manual/Game_Engine}},
+%
 %respectively), which has been extended with robot actuator and sensor models,
 %and both support control through common middlewares. We prefer MORSE for its
 %fully open source approach, and some other technical differences (see next
@@ -122,10 +121,17 @@ Gazebo (Koenig and Howard~\cite{Koenig2004}).
 %similarities most, if not all, requirements and/or conclusions identified would
 %also apply to work using USARSim.
 
-Naturally, simulating human agents to a realistic degree is hard.
-All robotics-oriented simulators, including both USARSim and MORSE, that
-support displaying human agents at all, require the developer to specify the
-agents' behavior externally, thus side-stepping the problem.
+All of these simulators are based around game engines (the Unreal Tournament Development Kit (UDK)~
+\footnote{\url{http://www.unrealengine.com/udk/} (UDK)}, the Blender Game 
+Engine\footnote{\url{http://wiki.blender.org/index.php/Doc:2.6/Manual/Game_Engine}},
+and Ogre3D\footnote{\url{http://www.ogre3d.org/}}, respectively).
+Their support for human agents varies drastically, with UDK and Blender offering
+much higher-level support, particularly for facial animation, than Ogre3D. However,
+all of these require the developer to specify the agents' behavior in detail.
+In practice, this limits human agent behaviors to relatively simple motions
+and interactions. Hence, it is not surprising that almost all HRI simulation so
+far is carried out in \emph{tele-operation} settings, where only the robot
+and the environment, but not the human agent, need to be simulated.
 
 In contrast, current work on embodied virtual agents (EVA) usually provides 
 higher-level functionality, such as simulated emotion dynamics, behavior 
@@ -140,6 +146,8 @@ in the EVA community, or by exposing a (lower-level)
 H-Anim\footnote{\url{http://www.h-anim.org/}} interface. H-Anim is already
 supported by Blender, MORSE's foundation.
 
+That said, the use cases shown in the following will demonstrate that
+with even current functionality many relevant scenarios can already be realized.
 
 % Mention Gazebo "animated characters": http://gazebosim.org/wiki/Tutorials/intermediate/animated_characters 
 % [Ingo] Actually, I don't like that approach. Why invent yet another interface? lets not mention it
