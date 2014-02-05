@@ -1,0 +1,228 @@
+
+thanks Ingo. sloccount seems to be a good tool.  here is my output:
+
+--------------------------------
+
+SLOC    Directory       SLOC-by-Language (Sorted)
+115     morse_ws        xml=49,python=44,sh=22
+
+Totals grouped by language (dominant language first):
+xml:             49 (42.61%)
+python:          44 (38.26%)
+sh:              22 (19.13%)
+
+Total Physical Source Lines of Code (SLOC)                = 115
+Development Effort Estimate, Person-Years (Person-Months) = 0.02 (0.25)
+ (Basic COCOMO model, Person-Months = 2.4 * (KSLOC**1.05))
+Schedule Estimate, Years (Months)                         = 0.12 (1.47)
+ (Basic COCOMO model, Months = 2.5 * (person-months**0.38))
+Estimated Average Number of Developers (Effort/Schedule)  = 0.17
+Total Estimated Cost to Develop                           = $ 2,789
+ (average salary = $56,286/year, overhead = 2.40).
+SLOCCount, Copyright (C) 2001-2004 David A. Wheeler
+SLOCCount is Open Source Software/Free Software, licensed under the GNU GPL.
+SLOCCount comes with ABSOLUTELY NO WARRANTY, and you are welcome to
+redistribute it under certain conditions as specified by the GNU GPL license;
+see the documentation for details.
+Please credit this data as "generated using David A. Wheeler's 'SLOCCount'."
+
+--------------------------------
+
+i run sloccount only on relevant launch files and scripts for the scenario to work :)
+
+about other metrix parameters:
+
+1b) What is the ratio in your implementation between Morse-specific code
+(e.g., modules where "import morse" occurs) and other, more generic
+code?
+
+from the output above python code is the morse specific code and xml+sh is more generic code
+
+
+1c) Which other libraries, besides Morse, do you use in your scenario?
+
+for the full experiment to work i used many ros libraries, most important are:
+gmapping (http://wiki.ros.org/gmapping),
+navigation(http://wiki.ros.org/navigation), 
+beside that i used lass libraries like 
+move3d (https://www.openrobots.org/wiki/move3d)
+mhp (it's not published openly)
+
+
+1d) While developing the scenario, was it necessary at some point to
+modify the core Morse code?
+
+no.
+
+
+2a) For how long, roughly, have you been working on implementing the
+scenario?
+
+that's difficult to answer for me too. i guess about 2 days for the morse specific files and another 3-4 days for making my experiment work.
+
+
+2b) How many people have *developed* the scenario?
+1 (me)
+
+
+ 2c) How many people are *using* the scenario?
+currently 1 (it was used by 1 more  person in the past but no more)
+
+cheers,
+harmish.
+
+> Date: Tue, 4 Feb 2014 10:54:52 +0100
+> From: Ingo.Luetkebohle@ipvs.uni-stuttgart.de
+> To: harmish@laas.fr; severin.lemaignan@epfl.ch; gmilliez@laas.fr
+> Subject: Re: MORSE@IROS: Questions on your Use Cases
+>
+> Am 04.02.2014 10:48, schrieb Harmish Khambhaita:
+> > i will do the metrics now. my scenario file is quite small, as i am just
+> > using PR2 robot and a human with some simple sensors. however, i have
+> > wrote down some launch files and scripts to launch morse-scenario and
+> > other ros nodes directly from roslaunch. i will see if/how can i include
+> > that into the metrics.
+>
+> sloccount reports LOC by type of file, so it can differentatiate XML (as
+> used in roslaunch files) and shell-scripts from other source-code.
+>
+> However, it doesn't (by default) know that ".launch"-files are XML. You
+> can add a symbolic link with an ".xml"-extension, though, and it will
+> pick that up, if you think the amount of XML in the launch files is of
+> relevance.
+>
+> cheers, Ingo
+>
+> > and i will also include the reference HRI paper which i mentioned. only
+> > problem is, although we have done preliminary experiments with morse, in
+> > the paper we only discuss real world experiments and result without
+> > mentioning morse!
+> >
+> > and one more note. since we are also talking about crowd simulation, i
+> > know that ALU-Freiburg is using another very simple crowd simulator in
+> > SPENCER project, called Pedsim (http://pedsim.silmaril.org/). may be, if
+> > its relevant you can also include reference to that simulator in to the
+> > related work section...
+> >
+> > cheers,
+> > harmish
+> >
+> >> Date: Tue, 4 Feb 2014 10:19:42 +0100
+> >> From: severin.lemaignan@epfl.ch
+> >> To: harmish@laas.fr; gmilliez@laas.fr
+> >> CC: Ingo.Luetkebohle@ipvs.uni-stuttgart.de
+> >> Subject: Fwd: Re: MORSE@IROS: Questions on your Use Cases
+> >>
+> >> Hello Harmish & Gregoire,
+> >>
+> >> Do you think you could have time today to compute some metrics regarding
+> >> your MORSE usage, to feed in the IROS paper?
+> >>
+> >> Cf Lars' email below for an idea of what can be done.
+> >>
+> >> Bests!
+> >> Severin
+> >>
+> >>
+> >> -------- Original Message --------
+> >> Subject: Re: MORSE@IROS: Questions on your Use Cases
+> >> Date: Thu, 30 Jan 2014 09:50:47 +0000
+> >> From: Lars Kunze <l.kunze@cs.bham.ac.uk>
+> >> To: Ingo Lütkebohle <Ingo.Luetkebohle@ipvs.uni-stuttgart.de>
+> >> CC: Florian Lier <flier@techfak.uni-bielefeld.de>, Séverin Lemaignan
+> >> <severin.lemaignan@epfl.ch>, Marc Hanheide <marc@hanheide.de>, Gregoire
+> >> Milliez <gregoire.milliez@laas.fr>, Michael Karg <kargm@in.tum.de>,
+> >> Harmish Khambhaita <harmish@laas.fr>
+> >>
+> >> Sorry, Ingo,
+> >>
+> >> I overlooked your Email. Please find my answers below.
+> >>
+> >> On 30 January 2014 08:31, Ingo Lütkebohle
+> >> <Ingo.Luetkebohle@ipvs.uni-stuttgart.de> wrote:
+> >>
+> >> >
+> >> > 1a) For your use-cases, how many lines-of-code implement the use case as
+> >> > such? Ideally use a well-known tool like sloccount to measure that.
+> >>
+> >> I only considered the part for the data generation using MORSE, but
+> >> not the code for generating/learning models based on the generated
+> >> data.
+> >> Also not included in the sloccount are 118 lines of code that I added
+> >> to morse's supervision services (git blame supervision_services.py |
+> >> grep Lars | wc) )
+> >>
+> >> Here is the result of sloccount:
+> >>
+> >> Total Physical Source Lines of Code (SLOC) = 667
+> >> Development Effort Estimate, Person-Years (Person-Months) = 0.13 (1.57)
+> >> (Basic COCOMO model, Person-Months = 2.4 * (KSLOC**1.05))
+> >> Schedule Estimate, Years (Months) = 0.25 (2.97)
+> >> (Basic COCOMO model, Months = 2.5 * (person-months**0.38))
+> >> Estimated Average Number of Developers (Effort/Schedule) = 0.53
+> >> Total Estimated Cost to Develop = $ 17,659
+> >> (average salary = $56,286/year, overhead = 2.40)
+> >>
+> >>
+> >>
+> >> >
+> >> > 1b) What is the ratio in your implementation between Morse-specific code
+> >> > (e.g., modules where "import morse" occurs) and other, more generic
+> > code?
+> >> >
+> >>
+> >> 118 (morse services)
+> >> +18 (morse.rpc calls in the other code)
+> >> --------
+> >> 136
+> >>
+> >> 136 / (118 + 667) = 0.1732 (or 17.32 %)
+> >>
+> >> > 1c) Which other libraries, besides Morse, do you use in your scenario?
+> >> >
+> >> nothing really fancy, except of numpy and json
+> >>
+> >> > 1d) While developing the scenario, was it necessary at some point to
+> >> > modify the core Morse code?
+> >>
+> >> I added some services allowing for remote procedure calls to beam
+> >> objects around and get information from them. But no changes in the
+> >> core.
+> >>
+> >> >
+> >> > 2a) For how long, roughly, have you been working on implementing the
+> >> > scenario?
+> >>
+> >> That's difficult to answer. I guess about one 1 week.
+> >>
+> >> >
+> >> > 2b) How many people have *developed* the scenario?
+> >>
+> >> 1 (me)
+> >>
+> >> >
+> >> > 2c) How many people are *using* the scenario?
+> >> >
+> >>
+> >> currently 4 (but soon more)
+> >>
+> >> I hope that helps. Let me know if something is not clear.
+> >>
+> >> cheers,
+> >> Lars
+> >>
+> >>
+> >>
+>
+> --
+> Ingo Lütkebohle, Dr.-Ing. Tel: +49-711-685-88350
+> Universität Stuttgart Fax: +49-711-685-88250
+> IVPS, Machine Learning and Robotics Lab
+> Universitätsstraße 38
+> 70569 Stuttgart
+> Germany
+>
+> http://www.ipvs.uni-stuttgart.de/?id=Ingo.Luetkebohle
+>
+
+

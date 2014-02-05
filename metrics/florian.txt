@@ -1,0 +1,163 @@
+
+Hi,
+
+I just "computed" my metrics, I omitted the "economists" stuff (did you ask for that Ingo?)
+those numbers seems like magic to me, is there a tool for that? ;)
+
+I will have a look at the paper some time tomorrow and add my comments. For what
+I have seen this afternoon it looks good but needs some polishing here and there, i.e.,
+there is a section that mentions MORSE like 10 times or so. Also we need to shorten it
+a bit (Ingo ;) )
+
+------------------------------------------------------------------------
+
+1) Total Physical Source Lines of Code (SLOC)               
+= 2941 (FSMT) + 149 (Tools *.sh and Morse scenario scripts)
+
+1b) What is the ratio in your implementation between Morse-specific code
+(e.g., modules where "import morse" occurs) and other, more generic code?
+
+MORSE specific code: 80
+FSMT: 2941
+Ratio: 80/3010 = 0.0256
+ 
+1c) Which other libraries, besides Morse, do you use in your scenario?
+
+PySCXML, ROS (common, msgs), a couple of Python modules (socket, minidom, etc.), ROSpy
+
+1d) While developing the scenario, was it necessary at some point to modify the core Morse code?
+
+No, not a single time
+
+2a) For how long, roughly, have you been working on implementing the scenario?
+
+The scenario itself, using MORSE, roughly 2 days. Including FSMT circa 5 months
+
+2b) How many people have *developed* the scenario?
+
+2 (Norman Köster and Me)
+
+2c) How many people are *using* the scenario?
+
+Hard to say, because it runs on our CI server, at least 2 that I know of and me, that makes 3
+
+--------------------------------------------------------------------------
+
+Cheers,
+    Florian
+
+
+On 2/4/14, 8:37 PM, Michael Karg wrote:
+> Hey, 
+>
+> here are my metrics for the apartment scenario:
+>
+>
+>     1a) For your use-cases, how many lines-of-code implement the use case as
+>     such? Ideally use a well-known tool like sloccount to measure that.
+>
+>  
+> Here are the LOC only for the scenario:
+>
+> Total Physical Source Lines of Code (SLOC)                = 82
+> Development Effort Estimate, Person-Years (Person-Months) = 0.01 (0.17)
+>  (Basic COCOMO model, Person-Months = 2.4 * (KSLOC**1.05))
+> Schedule Estimate, Years (Months)                         = 0.11 (1.29)
+>  (Basic COCOMO model, Months = 2.5 * (person-months**0.38))
+> Estimated Average Number of Developers (Effort/Schedule)  = 0.14
+> Total Estimated Cost to Develop                           = $ 1,955
+>
+> I additionally added sensors for the detection of open drawers and doors including middleware files:
+>
+> Sensor files:
+>
+> Total Physical Source Lines of Code (SLOC)                = 55
+> Development Effort Estimate, Person-Years (Person-Months) = 0.01 (0.11)
+>  (Basic COCOMO model, Person-Months = 2.4 * (KSLOC**1.05))
+> Schedule Estimate, Years (Months)                         = 0.09 (1.10)
+>  (Basic COCOMO model, Months = 2.5 * (person-months**0.38))
+> Estimated Average Number of Developers (Effort/Schedule)  = 0.10
+> Total Estimated Cost to Develop                           = $ 1,285
+>  (average salary = $56,286/year, overhead = 2.40).
+>
+> Middleware files:
+>
+> Total Physical Source Lines of Code (SLOC)                = 42
+> Development Effort Estimate, Person-Years (Person-Months) = 0.01 (0.09)
+>  (Basic COCOMO model, Person-Months = 2.4 * (KSLOC**1.05))
+> Schedule Estimate, Years (Months)                         = 0.08 (0.98)
+>  (Basic COCOMO model, Months = 2.5 * (person-months**0.38))
+> Estimated Average Number of Developers (Effort/Schedule)  = 0.09
+> Total Estimated Cost to Develop                           = $ 968
+>  (average salary = $56,286/year, overhead = 2.40).
+>
+>  
+>
+>     1b) What is the ratio in your implementation between Morse-specific code
+>     (e.g., modules where "import morse" occurs) and other, more generic code?
+>
+>
+> This is really hard to tell since we used a quite complex activity recognition approach plus a CRAM-based framework for expectations based on ROS for this use case... counting (roughly) only the LISP code, I contributed to extract data from the scenario:
+>
+> MORSE specific code: 82 + 55 + 42 = 179 loc
+> Activity recognition + Exp. Framework: 2822 + 655 = 3577 loc 
+> Ratio: 179/3577 = 0.05
+>  
+>
+>
+>     1c) Which other libraries, besides Morse, do you use in your scenario?
+>
+>
+> none (except for all the ROS and CRAM related stuff)
+>  
+>
+>
+>     1d) While developing the scenario, was it necessary at some point to
+>     modify the core Morse code?
+>
+>
+> Regarding the human component as it is now, the only "modification" of the code for this specific scenario was the addition of the sensors for the door and drawer detection.
+>  
+>
+>
+>     2a) For how long, roughly, have you been working on implementing the
+>     scenario?
+>
+>
+> Hmm, hard to tell, scenario only (without the activity recognition and expectations framework): a few hours. Activity recognition and expectations framework: approx. 6 months 
+>  
+>
+>     2b) How many people have *developed* the scenario?
+>
+>
+> 1 (me)
+>  
+>
+>
+>     2c) How many people are *using* the scenario?
+>
+>
+> 2 (me and Alex)
+>  
+>
+> I hope the answers are as intended... Otherwise, hit me back! 
+>
+> I didn't yet thank you guys for organizing the paper. I already love it!
+>
+> Cheers,
+> Michi 
+
+
+-- 
+M.Sc.(Intelligent Systems) Florian Lier
+
+PhD Student | Scientific Staff @ Central Lab Facilities
+
+Location: FBIIS 0.409
+
+Phone: +49 521 106-2933
+
+Cognitive Interaction Technology - Center of Excellence
+http://www.cit-ec.de/users/flier
+
+

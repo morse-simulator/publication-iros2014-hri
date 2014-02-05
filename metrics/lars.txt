@@ -1,0 +1,79 @@
+
+
+Sorry, Ingo,
+
+I overlooked your Email. Please find my answers below.
+
+On 30 January 2014 08:31, Ingo Lütkebohle
+<Ingo.Luetkebohle@ipvs.uni-stuttgart.de> wrote:
+
+>
+> 1a) For your use-cases, how many lines-of-code implement the use case as
+> such? Ideally use a well-known tool like sloccount to measure that.
+
+I only considered the part for the data generation using MORSE, but
+not the code for generating/learning models based on the generated
+data.
+Also not included in the sloccount are 118 lines of code that I added
+to morse's supervision services (git blame supervision_services.py |
+grep Lars | wc) )
+
+Here is the result of sloccount:
+
+Total Physical Source Lines of Code (SLOC)                = 667
+Development Effort Estimate, Person-Years (Person-Months) = 0.13 (1.57)
+ (Basic COCOMO model, Person-Months = 2.4 * (KSLOC**1.05))
+Schedule Estimate, Years (Months)                         = 0.25 (2.97)
+ (Basic COCOMO model, Months = 2.5 * (person-months**0.38))
+Estimated Average Number of Developers (Effort/Schedule)  = 0.53
+Total Estimated Cost to Develop                           = $ 17,659
+ (average salary = $56,286/year, overhead = 2.40)
+
+
+
+>
+> 1b) What is the ratio in your implementation between Morse-specific code
+> (e.g., modules where "import morse" occurs) and other, more generic code?
+>
+
+ 118 (morse services)
++18   (morse.rpc calls in the other code)
+--------
+136
+
+136 / (118 + 667) = 0.1732  (or 17.32 %)
+
+> 1c) Which other libraries, besides Morse, do you use in your scenario?
+>
+nothing really fancy, except of numpy and json
+
+> 1d) While developing the scenario, was it necessary at some point to
+> modify the core Morse code?
+
+I added some services allowing for remote procedure calls to beam
+objects around and get information from them. But no changes in the
+core.
+
+>
+> 2a) For how long, roughly, have you been working on implementing the
+> scenario?
+
+That's difficult to answer. I guess about one 1 week.
+
+>
+> 2b) How many people have *developed* the scenario?
+
+1 (me)
+
+>
+> 2c) How many people are *using* the scenario?
+>
+
+currently 4 (but soon more)
+
+I hope that helps. Let me know if something is not clear.
+
+cheers,
+Lars
+
+

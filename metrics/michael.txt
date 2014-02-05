@@ -1,0 +1,101 @@
+
+Hey, 
+
+here are my metrics for the apartment scenario:
+
+
+    1a) For your use-cases, how many lines-of-code implement the use case as
+    such? Ideally use a well-known tool like sloccount to measure that.
+
+ 
+Here are the LOC only for the scenario:
+
+Total Physical Source Lines of Code (SLOC)                = 82
+Development Effort Estimate, Person-Years (Person-Months) = 0.01 (0.17)
+ (Basic COCOMO model, Person-Months = 2.4 * (KSLOC**1.05))
+Schedule Estimate, Years (Months)                         = 0.11 (1.29)
+ (Basic COCOMO model, Months = 2.5 * (person-months**0.38))
+Estimated Average Number of Developers (Effort/Schedule)  = 0.14
+Total Estimated Cost to Develop                           = $ 1,955
+
+I additionally added sensors for the detection of open drawers and doors including middleware files:
+
+Sensor files:
+
+Total Physical Source Lines of Code (SLOC)                = 55
+Development Effort Estimate, Person-Years (Person-Months) = 0.01 (0.11)
+ (Basic COCOMO model, Person-Months = 2.4 * (KSLOC**1.05))
+Schedule Estimate, Years (Months)                         = 0.09 (1.10)
+ (Basic COCOMO model, Months = 2.5 * (person-months**0.38))
+Estimated Average Number of Developers (Effort/Schedule)  = 0.10
+Total Estimated Cost to Develop                           = $ 1,285
+ (average salary = $56,286/year, overhead = 2.40).
+
+Middleware files:
+
+Total Physical Source Lines of Code (SLOC)                = 42
+Development Effort Estimate, Person-Years (Person-Months) = 0.01 (0.09)
+ (Basic COCOMO model, Person-Months = 2.4 * (KSLOC**1.05))
+Schedule Estimate, Years (Months)                         = 0.08 (0.98)
+ (Basic COCOMO model, Months = 2.5 * (person-months**0.38))
+Estimated Average Number of Developers (Effort/Schedule)  = 0.09
+Total Estimated Cost to Develop                           = $ 968
+ (average salary = $56,286/year, overhead = 2.40).
+
+ 
+
+    1b) What is the ratio in your implementation between Morse-specific code
+    (e.g., modules where "import morse" occurs) and other, more generic code?
+
+
+This is really hard to tell since we used a quite complex activity recognition approach plus a CRAM-based framework for expectations based on ROS for this use case... counting (roughly) only the LISP code, I contributed to extract data from the scenario:
+
+MORSE specific code: 82 + 55 + 42 = 179 loc
+Activity recognition + Exp. Framework: 2822 + 655 = 3577 loc 
+Ratio: 179/3577 = 0.05
+ 
+
+
+    1c) Which other libraries, besides Morse, do you use in your scenario?
+
+
+none (except for all the ROS and CRAM related stuff)
+ 
+
+
+    1d) While developing the scenario, was it necessary at some point to
+    modify the core Morse code?
+
+
+Regarding the human component as it is now, the only "modification" of the code for this specific scenario was the addition of the sensors for the door and drawer detection.
+ 
+
+
+    2a) For how long, roughly, have you been working on implementing the
+    scenario?
+
+
+Hmm, hard to tell, scenario only (without the activity recognition and expectations framework): a few hours. Activity recognition and expectations framework: approx. 6 months 
+ 
+
+    2b) How many people have *developed* the scenario?
+
+
+1 (me)
+ 
+
+
+    2c) How many people are *using* the scenario?
+
+
+2 (me and Alex)
+ 
+
+I hope the answers are as intended... Otherwise, hit me back! 
+
+I didn't yet thank you guys for organizing the paper. I already love it!
+
+Cheers,
+Michi 
+
+
