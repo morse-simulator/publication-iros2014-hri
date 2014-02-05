@@ -468,6 +468,38 @@ predefined object, sit down on a chair/sofa or open a door. Lastly, audio suppor
 \ie Text-to-Speech output for the human component would significantly increase
 the usability to assess algorithms which rely on multimodal inputs.  
 
+\section{Judging Morse as a tool for HRI simulation}
+
+While obviously the authors already chose, the reader of this paper may wonder 
+how well Morse would be suited for her or his novel application. As we said in
+the beginning, the feature-lists of many simulators look quite similar, and the
+underlying game/physics engines are already compared. Therefore, for this paper, 
+we have looked at \emph{ease of use}, or more specifically, how much (development)
+\emph{effort} (operationalized as lines of code) it has been to realize the 
+described use cases. These values are summarized in Table~\ref{tbl:metrics}.
+
+\begin{table}[tb]
+\centering
+\begin{tabular}{lccccc}
+\textbf{Scenario} & \ref{sc:assessment} & \ref{sc:expectations} & \ref{sc:navigation} & \ref{sc:generation} & \ref{sc:ci} \\\hline
+\textbf{\#LoC} & 263 & 179 & 115 & 136 & 229\\
+\textbf{Ratio} & - & 5\% & - & 17\% & 7,8\%\\
+\end{tabular}
+\caption{\label{tbl:metrics}\emph{Morse-specific} lines of code in scenario}
+\end{table}
+
+It is apparent that the Morse-specific parts for all use cases are relatively
+modest but not negligible, with a mean of 10\%. For the count, we have 
+summed both Python-code running in Morse, as well as launch-files and shell-scripts
+necessary for running the scenarios. The code ratio is compared to other, non-morse
+specific code used in the scenario (e.g., libraries such as SPARK or FSMT).
+
+In conclusion of this simple comparison, we can say that it is possible to construct
+reasonably complex use cases with very little Morse-specific code, which makes it
+a good foundation in our estimation. For a more thorough comparison, we would
+need standard use cases and comparable numbers from other tools, which are unfortunately
+not yet available, but which we hope will become available in the future.
+
 \section{Discussion: Which Place for HRI Simulation?}
 
 As researchers in HRI, we believe that simulation holds a rightful place, both as
