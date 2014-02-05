@@ -106,7 +106,9 @@ For other robot simulation work, a good overview of recent research is~\cite{And
 Popular engines with explicit support for controlling a human agent
 include USARSim (Lewis~\etal\cite{lewis2007usarsim}), which is very common
 for Rescue Robotics, and used in dozens of HRI studies, 
-MORSE (Echeverria~\etal\cite{morse_simpar_2012}), obviously, and there have been also been experiments with character animation in the widely-used simulator Gazebo (Koenig and Howard~\cite{Koenig2004}).
+MORSE (Echeverria~\etal\cite{morse_simpar_2012}), obviously, and there have been
+also been experiments with character animation in the widely-used simulator
+Gazebo (Koenig and Howard~\cite{Koenig2004}).
 
 
 %Note, however, that USARSim and MORSE are quite similar technically, in that
@@ -158,7 +160,7 @@ and actuators that behave in the same way as their counterparts in the real
 world. MORSE relies on the Blender \emph{Game Engine}, a real-time 3D runtime
 integrated to the open-source Blender modeling toolkit, both for advanced 3D
 (OpenGL shaders) and physics simulation (based on the {\sc Bullet} physics
-engine). This allows for semi-realistic simulation of complex environments.
+engine\footnote{\url{http://www.bulletphysics.org}}). This allows for semi-realistic simulation of complex environments.
 The MORSE components (sensors and actuators) exchange data with the robotics
 software via middleware bindings (\emph{Software In The Loop} architecture).
 Four robotic middlewares are currently supported, including ROS and YARP, as
@@ -170,24 +172,24 @@ provided and enables fast creation of simulation scenarii, while custom
 components can be added via Python (for the behaviours) and Blender (for the 3D
 design).
 
-Two MORSE features stand out. First, MORSE has been primarily designed for
-efficiency in a console environment, and only features a minimal (and fully
-optional) graphical user interface. This makes MORSE mainly targeted to an
-academic audience, where efficiency and lightness prevail.  Simulation scenes
-are actually short Python programs, thus well suited for sharing and versioning.
+Two MORSE features stand out. First, MORSE has been primarily designed with a
+command-line interface, and only features a minimal (and fully optional)
+graphical user interface. This makes MORSE mainly targeted to an academic
+audience, where efficiency and lightness prevail.  Simulation scenes are
+actually short Python programs, thus well suited for sharing and versioning.
 This also eases the integration of the simulator into larger development
 workflows, and MORSE is successfully integrated into several continuous
 integration systems (Travis, Jenkins).
 
 Second, MORSE has a concept of \emph{abstraction levels}: sensors and actuators
 may expose several levels of abstraction, corresponding to different level of
-physical accuracy. For instance, users may choose if the odometry sensor returns
-only a curvilinear distance, a $dX, dY, dZ$ differential vector, or the absolute
+realism. For instance, users may choose if the odometry sensor returns only a
+curvilinear distance, a $dX, dY, dZ$ differential vector, or the absolute
 position of the robot (integrated odometry). This allows users that are testing
 low-level components to do so, while users working at a higher abstraction
-levels (typically in HRI) do not have to run full robotic software stacks, and
-thus benefit from a lighter environment. This feature can be finely controlled,
-on a per-component basis.
+levels (typically in HRI) do not have to run full robotic software stacks (and
+thus, benefit from a lighter environment), and can work in a more deterministic
+environment. This feature can be finely controlled, on a per-component basis.
 
 For HRI applications, MORSE provides a human avatar that can be fully controlled
 (displacement, gaze, grasping of objects, interactions with the environment like
@@ -254,10 +256,9 @@ using MORSE simulation to test their software and collect data with the same
 environment in their laboratory, where they focus on dialog processing. They can
 train their dialog system using MORSE feedback to test the robot behaviours.
 
-\emph{Specific limitations} MORSE currently lacks components
-related to sound management (simulation of microphone and speakers, support for
-sound propagation models), thus only providing an incomplete model of the
-environment.
+\emph{Specific limitations} MORSE currently only partially supports features
+related to sound management (no simulation of microphones, no support for sound
+propagation models), thus only providing an incomplete model of the environment.
 
 \subsection{An Expectations Framework for Domestic Robot Assistants}
 \label{sc:expectations}
@@ -272,7 +273,7 @@ The detection of such unexpected behavior can help future domestic service robot
 to better assess situations and adapt their actions to human behavior.
 
 \emph{Benefits of the simulation} The use of the MORSE simulator enabled us to set up a large, 
-realistic testbed by combining realistic robot control via the ROS middleware with the
+testbed by combining realistic robot control via the ROS middleware with the
 unpredictability of human behavior using the human component of MORSE. Setting
 up of such an apartment in a real-world setting, together with a suitable
 sensor setup and a reliable robot control, would not only introduce huge costs
@@ -377,10 +378,11 @@ enabled a robot to predict the position of an object given a landmark. We
 employed these models to effectively guide a simulated and a real robot in
 object search tasks and evaluated its performance~\cite{kunze14indirect}.
 
-\emph{Benefits of the simulation} First, the automatic scene generation and
-annotation of object arrangements in simulation is useful for the acquisition of
-large amounts of data over short periods of time. The generated data enabled us
-to design, implement and to evaluate our methods for predicting object locations
+\emph{Benefits of the simulation} First, the automatic scene generation (made
+easy by the use of Python to ``program'' the simulation scenes) and annotation
+of object arrangements in simulation is useful for the acquisition of large
+amounts of data over short periods of time. The generated data enabled us to
+design, implement and to evaluate our methods for predicting object locations
 before having a real-world data set in place. Secondly, the generation of object
 arrangements can increase the variability of scenes in human-robot experiments
 in general. Given the dynamics of objects in the real world it is important not
@@ -585,7 +587,7 @@ In~\cite{lemaignan2012morse}, we presented how a human agent could interact with
 a virtual robot through a deictic interface based on a Kinect. While arm
 movements and small displacement (in a 2-3m\textsuperscript{2} zone) could be fairly
 accurately transposed from the physical world to the simulation, the overall
-interaction was not immersive (no head tracking, limited, non-dynamic field of
+interaction was not yet immersive (no head tracking, limited, non-dynamic field of
 view on a TV screen, no sound). Two distinct projects are currently looking into
 extending this line of research, one (at Bielefield University) aiming at
 integrating emerging Virtual Reality devices (like Occulus Rift) with MORSE, the
@@ -599,6 +601,10 @@ control a human avatar from their webbrowsers. This would potentially enable
 collection of large behavioural datasets. While MORSE development in that
 direction has yet to start, it can be noted that the Gazebo simulator already
 features a limited WebGL client, that act as a proof-of-concept.
+
+Faster-than-realtime simulation, a recent feature of MORSE (currently at testing
+stage), is a last development that can have significant applications for
+HRI\fixme{finish that}
 
 \paragraph*{To conclude}
 
