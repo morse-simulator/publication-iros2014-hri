@@ -94,31 +94,31 @@ fundamental issues that simulation of human-robot interaction still faces.
       \label{fig|morse-hri}
 \end{figure}
 
-In the robotics domain, classical simulators focus either on low-level physical
-aspects (realistic motion, kinematics, perception from scene, rendering, etc.) 
-or macroscopic behaviours (in particular, collective behaviours). For an overview
-of recent work, we refer the interested reader to~\cite{Ando2010}. While many
-of these could be used for HRI, only few of them have been.
+When we talk about simulators in the following, we refer to simulation engines
+with support for physically simulating both robot kinematics and dynamics as well
+as physical objects in the environment, and where the control and sensor interface
+is close to or the same as it would be on real robots. For this paper in particular,
+we further only consider engines which can render and animate a human agent
+suitable for HRI, and which have been applied for this use case (many engines
+could theoretically support this use case, but few of them have actually have been).
+For other robot simulation work, a good overview of recent research is~\cite{Ando2010}.
 
-Most notably, in the domain of Unmanned Search And Rescue (USAR), a common
-simulator platform called USARSim (Lewis~\etal\cite{lewis2007usarsim}) is widely
-used and has been applied in many HRI studies, albeit so far only for 
-tele-operation. In tele-operation, the operator faces a (often custom) control 
-application that displays simulated sensor data. In contrast, the present work
-strives to integrate the human agent into the simulation more fully, 
-particularly including situated interaction, and also frequently makes use of
-external cameras.
+Popular engines with explicit support for controlling a human agent
+include USARSim (Lewis~\etal\cite{lewis2007usarsim}), which is very common
+for Rescue Robotics, and used in dozens of HRI studies, 
+MORSE (Echeverria~\etal\cite{morse_simpar_2012}), obviously, and there have been also been experiments with character animation in the widely-used simulator Gazebo (Koenig and Howard~\cite{Koenig2004}).
 
-Note, however, that USARSim and MORSE are quite similar technically, in that
-both are based on an underlying game engine (the Unreal Tournament Development
-Kit\footnote{\url{http://www.unrealengine.com/udk/}} and the Blender Game
-Engine\footnote{\url{http://wiki.blender.org/index.php/Doc:2.6/Manual/Game_Engine}},
-respectively), which has been extended with robot actuator and sensor models,
-and both support control through common middlewares. We prefer MORSE for its
-fully open source approach, and some other technical differences (see next
-section for more details), but we believe that due to the overwhelming
-similarities most, if not all, requirements and/or conclusions identified would
-also apply to work using USARSim.
+
+%Note, however, that USARSim and MORSE are quite similar technically, in that
+%both are based on an underlying game engine (the Unreal Tournament Development
+%Kit\footnote{\url{http://www.unrealengine.com/udk/}} and the Blender Game
+%Engine\footnote{\url{http://wiki.blender.org/index.php/Doc:2.6/Manual/Game_Engine}},
+%respectively), which has been extended with robot actuator and sensor models,
+%and both support control through common middlewares. We prefer MORSE for its
+%fully open source approach, and some other technical differences (see next
+%section for more details), but we believe that due to the overwhelming
+%similarities most, if not all, requirements and/or conclusions identified would
+%also apply to work using USARSim.
 
 Naturally, simulating human agents to a realistic degree is hard.
 All robotics-oriented simulators, including both USARSim and MORSE, that
