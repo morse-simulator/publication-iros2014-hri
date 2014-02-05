@@ -468,40 +468,25 @@ predefined object, sit down on a chair/sofa or open a door. Lastly, audio suppor
 \ie Text-to-Speech output for the human component would significantly increase
 the usability to assess algorithms which rely on multimodal inputs.  
 
-\section{Judging Morse as a tool for HRI simulation}
+\section{Discussion}
 
-While obviously the authors already chose, the reader of this paper may wonder 
-how well Morse would be suited for her or his novel application. As we said in
-the beginning, the feature-lists of many simulators look quite similar, and the
-underlying game/physics engines are already compared. Therefore, for this paper, 
-we have looked at \emph{ease of use}, or more specifically, how much (development)
-\emph{effort} (operationalized as lines of code) it has been to realize the 
-described use cases. These values are summarized in Table~\ref{tbl:metrics}.
+Before discussing the use cases, we'd like to make a short remark on the 
+\emph{cost} of integrating MORSE into these scenarios. For that, have 
+tried to differentiate how much code is needed for integrating MORSE with existing
+tools. 
 
-\begin{table}[tb]
-\centering
-\begin{tabular}{lccccc}
-\textbf{Scenario} & \ref{sc:assessment} & \ref{sc:expectations} & \ref{sc:navigation} & \ref{sc:generation} & \ref{sc:ci} \\\hline
-\textbf{\#LoC} & 263 & 179 & 115 & 136 & 229\\
-\textbf{Ratio} & - & 5\% & - & 17\% & 7,8\%\\
-\end{tabular}
-\caption{\label{tbl:metrics}\emph{Morse-specific} lines of code in scenario}
-\end{table}
+In general, all of the use cases discussed could be \emph{integrated} in 
+between 100 to 300 lines of code (specifically: 263LoC for~\ref{sc:assessment},
+179 for~\ref{sc:expectations}, 115 for~\ref{sc:navigation}, 
+136 for~\ref{sc:generation}, and 229 for~\ref{sc:ci}). This does not cover all 
+the scenario code, just the Morse specific parts, but it includes not just Python
+code but also shell scripts and launch files for running the scenarios in Morse.
 
-It is apparent that the Morse-specific parts for all use cases are relatively
-modest but not negligible, with a mean of 10\%. For the count, we have 
-summed both Python-code running in Morse, as well as launch-files and shell-scripts
-necessary for running the scenarios. The code ratio is compared to other, non-morse
-specific code used in the scenario (e.g., libraries such as SPARK or FSMT).
+Of course these numbers are hard to interpret in isolation, but they
+indicate--in our opinion--that integration with MORSE is relatively little
+effort.
 
-In conclusion of this simple comparison, we can say that it is possible to construct
-reasonably complex use cases with very little Morse-specific code, which makes it
-a good foundation in our estimation. For a more thorough comparison, we would
-need standard use cases and comparable numbers from other tools, which are unfortunately
-not yet available, but which we hope will become available in the future.
-
-\section{Discussion: Which Place for HRI Simulation?}
-
+\subsection{Which Place for HRI Simulation?}
 As researchers in HRI, we believe that simulation holds a rightful place, both as
 an efficient engineering support tool, and as a novel source of realistic yet
 repeatable (hence comparable) human inputs for our systems.
