@@ -1,4 +1,6 @@
-\documentclass[conference]{IEEEtran}
+\documentclass[letterpaper, 10pt, conference]{ieeeconf}
+\overrideIEEEmargins
+\IEEEoverridecommandlockouts                              % This command is only needed if 
 
 % UTF8 support
 \usepackage[utf8x]{inputenc}
@@ -17,30 +19,34 @@
 \newcommand{\etal}{{\textit{et al.~}}}
 \newcommand{\ie}{{\textit{i.e.~}}}
 
-\begin{document}
 
 \title{Simulation and HRI: Recent Perspectives}
 
-\author{\IEEEauthorblockN{
-Séverin Lemaignan\IEEEauthorrefmark{2},
-Marc Hanheide\IEEEauthorrefmark{7},
-Michael Karg\IEEEauthorrefmark{4},
-Harmish Khambhaita\IEEEauthorrefmark{1},
-Lars Kunze\IEEEauthorrefmark{5},\\
-Florian Lier\IEEEauthorrefmark{3},
-Ingo Lütkebohle\IEEEauthorrefmark{6} and
-Grégoire Milliez\IEEEauthorrefmark{1}
-\IEEEauthorblockA{\IEEEauthorrefmark{2}Computer-Human Interaction for Learning and Instruction, École Polytechnique Fédérale de Lausanne, Switzerland}
-\IEEEauthorblockA{\IEEEauthorrefmark{7}Lincoln Centre for Autonomous Systems, University of Lincoln, Lincoln, United Kingdom}
-\IEEEauthorblockA{\IEEEauthorrefmark{4}Institute for Advanced Study, Technische Universität München, Garching, Germany}
-\IEEEauthorblockA{\IEEEauthorrefmark{1}Laboratoire d'Analyse et d'Architecture des Système, Université de Toulouse, Toulouse, France}
-\IEEEauthorblockA{\IEEEauthorrefmark{5}Intelligent Robotics Lab, School of Computer Science, University of Birmingham, United Kingdom}
-\IEEEauthorblockA{\IEEEauthorrefmark{3}Cognitive Interaction Technology --- Center of Excellence, Bielefeld University, Bielefeld, Germany}
-\IEEEauthorblockA{\IEEEauthorrefmark{6}Machine Learning and Robotics Lab, Institute for Parallel and Distributed Systems, Universität Stuttgart, Germany}
-}}
+\author{
+Séverin Lemaignan$^{1}$,
+Marc Hanheide$^{2}$,
+Michael Karg$^{3}$,
+Harmish Khambhaita$^{4}$,\\
+Lars Kunze$^{5}$,
+Florian Lier$^{6}$,
+Ingo Lütkebohle$^{7}$ and
+Grégoire Milliez$^{4}$%
+\thanks{$^{1}$S. Lemaignan is with Computer-Human Interaction for Learning and Instruction, École Polytechnique Fédérale de Lausanne, Switzerland}
+\thanks{$^{2}$M. Hanheide is with Lincoln Centre for Autonomous Systems, University of Lincoln, Lincoln, United Kingdom}
+\thanks{$^{3}$M. Karg is with Institute for Advanced Study, Technische Universität München, Garching, Germany}
+\thanks{$^{4}$H. Khambhaita and G. Milliez are with Laboratoire d'Analyse et d'Architecture des Système, Université de Toulouse, Toulouse, France}
+\thanks{$^{5}$L. Kunze is with Intelligent Robotics Lab, School of Computer Science, University of Birmingham, United Kingdom}
+\thanks{$^{6}$F. Lier is with Cognitive Interaction Technology --- Center of Excellence, Bielefeld University, Bielefeld, Germany}
+\thanks{$^{7}$I. Lütkebohle is with Machine Learning and Robotics Lab, Institute for Parallel and Distributed Systems, Universität Stuttgart, Germany}
+}
 
+
+\begin{document}
 
 \maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
 
 \begin{abstract}
 
@@ -57,8 +63,6 @@ if not essential, to successfully carry out research in the field of HRI, and
 sometimes in scenarios we do not anticipate.
 
 \end{abstract}
-
-\IEEEpeerreviewmaketitle
 
 \section{Introduction}
 
