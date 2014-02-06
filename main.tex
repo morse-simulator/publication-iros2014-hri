@@ -56,8 +56,8 @@ software architectures on complex hardware, simulators are also known to evade
 many (if not most) of the real issues that robots need to manage when they enter
 the real world.  Because humans are the paragon of dynamic, unpredictable,
 complex, real world entities, simulation of human-robot interactions may look
-condemn to fail, or, in the best case, to be mostly useless.  This collective
-article reports on five unrelated applications of the MORSE simulator in the
+condemn to fail, or, in the best case, to be mostly useless. This collective
+article reports on five independent applications of the MORSE simulator in the
 field of human-robot interaction: It appears that simulation is already useful,
 if not essential, to successfully carry out research in the field of HRI, and
 sometimes in scenarios we do not anticipate.
@@ -72,13 +72,13 @@ accuracy, low latencies, high bandwidth, integration within complex software
 architectures) and \emph{embodied virtual agents} (which also brings in its own
 requirements like realistic human kinematics and visual rendering, complex
 behaviours, rich user interface), while still remaining a \emph{tool}: in order
-\emph{not} to stand in the way of our day to day development workflow, it must
+\emph{not} to stand in the way of our daily development workflow, it must
 \emph{feel} lightweight, responsive, easy to setup and deploy.
 
 This paper presents how the Modular OpenRobots Simulation Engine (MORSE,
 figure~\ref{fig|morse-hri})~\cite{morse_simpar_2012} simulator attempts to
 address this challenge to eventually provide a convenient support for research
-in human-robot interaction.  We first give a brief overview of the simulator
+in human-robot interaction. We first give a brief overview of the simulator
 with a focus on HRI-specific features, and then report on several real-world
 applications. These five case-studies illustrate the collective nature of this
 article: we report on contributions and experiences in human-robot interaction
@@ -101,16 +101,16 @@ fundamental issues that simulation of human-robot interaction still faces.
 When we mention simulators in the following, we refer to simulation engines with
 support for physically simulating both robot kinematics and dynamics, as well as
 physical objects in the environment, and where the control and sensor interface
-is close to or the same as it would be on real robots. In this paper, we beside
-only consider engines which support rendering and animation of human agents
+is close to or the same as it is on real robots. In this paper, we beside
+only consider engines that support rendering and animation of human agents
 suitable for HRI, and which have been actually used in this context (while many
 engines could theoretically support this use case, few of them have actually
 demonstrated it). For the interested reader, a broader overview of research in
 robotic simulation is provided in~\cite{Ando2010}.
 
-Beside MORSE, simulators with explicit support for controlling a human agent
+Besides MORSE, simulators with explicit support for controlling a human agent
 include USARSim (Lewis~\etal\cite{lewis2007usarsim}), which is commonly used in
-the field of rescue robotics, and used in dozens of HRI studies, and, to a
+the field of rescue robotics and in dozens of HRI studies, and, to a
 lesser extend, experiments with character animation have been developed in the
 widely-used simulator Gazebo (Koenig and Howard~\cite{Koenig2004}).
 
@@ -125,7 +125,7 @@ widely-used simulator Gazebo (Koenig and Howard~\cite{Koenig2004}).
 %similarities most, if not all, requirements and/or conclusions identified would
 %also apply to work using USARSim.
 
-All of these simulators are based around game engines (the Blender Game Engine,
+All of these simulators are based on game engines (the Blender Game Engine,
 Unreal Tournament Development Kit and Ogre3D, respectively). While their
 built-in support for human models varies, all of these engines require the
 developer to specify the agents' behavior in detail. In practice, this limits
@@ -140,8 +140,8 @@ generation based on action primitives, conversational dialogue systems, and
 up to cognitive simulations. However, integrating these into a coherent 
 system with an acceptable interface remains 
 challenging~\cite{gratch2002creating}. We do not think that general-purpose
-simulators will acquire any of these functions soon, but they could be
-capable of integrating external components that do, for example, by offering 
+simulators will acquire any of these functions soon. However, they could be
+capable of integrating external components, for example, by offering 
 an interface for the Behavior Markup Language~\cite{kopp2006towards} popular
 in the EVA community, or by exposing a (lower-level) 
 H-Anim\footnote{\url{http://www.h-anim.org/}} interface. H-Anim is already
@@ -151,11 +151,10 @@ That said, the use cases shown in the next sections hopefully demonstrate that
 even with current limited functionalities, many relevant scenarios can already
 be realized.
 
-
 \subsection*{HRI and the MORSE simulator}
 
-The five projects that are presented in this article all rely on the MORSE as
-simulation platform. We briefly go over the main MORSE features in this section,
+All five projects that are presented in this article rely on the MORSE as
+simulation platform. In this section, we briefly go over the main MORSE features
 and kindly suggest the interested readers to refer to~\cite{morse_simpar_2012}
 or to the MORSE website\footnote{\url{http://morse-simulator.github.io}} for
 details.
@@ -165,18 +164,18 @@ contributions from over 15 institutions worldwide. It is a domain independent
 simulator where virtual robots can interact with a 3D environment, using sensors
 and actuators that behave in the same way as their counterparts in the real
 world. MORSE relies on the Blender \emph{Game Engine}, a real-time 3D runtime
-integrated to the open-source Blender modeling toolkit, both for advanced 3D
+integrated into the open-source Blender modeling toolkit, both for advanced 3D
 (OpenGL shaders) and physics simulation (based on the {\sc Bullet} physics
 engine\footnote{\url{http://www.bulletphysics.org}}). This allows for semi-realistic simulation of complex environments.
 The MORSE components (sensors and actuators) exchange data with the robotics
 software via middleware bindings (\emph{Software In The Loop} architecture).
-Four robotic middlewares are currently supported, including ROS and YARP, as
+Four robotics-related middlewares are currently supported, including ROS and YARP, as
 well as a generic socket-based protocol. This design aims at providing a
 seamless experience when switching back and forth between the simulator and the
-real robot. As expected for a versatile robotic simulator, a set of standard
-robotic platforms, actuators and sensors (more than 50 components) is
-provided and enables fast creation of simulation scenarios, while custom
-components can be added via Python (for the behaviours) and Blender (for the 3D
+physical robot. As expected for a versatile robotic simulator, standard
+robotic platforms, actuators and sensors (more than 50 components) are
+provided and enable fast creation of simulation scenarios. Additionally, custom
+components can be added via Python (for the behaviors) and Blender (for the 3D
 design).
 
 %Two MORSE features stand out. First, MORSE has been primarily designed with a
@@ -193,23 +192,21 @@ may expose several levels of abstraction, corresponding to different level of
 realism. For instance, users may choose if the odometry sensor returns only a
 curvilinear distance, a $dX, dY, dZ$ differential vector, or the absolute
 position of the robot (integrated odometry). This allows users that are testing
-low-level components to do so, while users working at a higher abstraction
+low-level components to do so, while users working at higher abstraction
 levels (typically in HRI) do not have to run full robotic software stacks (and
 thus, benefit from a lighter environment) and can work in a more deterministic
 environment. This feature can be finely controlled, on a per-component basis.
 
 For HRI applications, MORSE provides a human avatar that can be fully controlled
 (displacement, gaze, grasping of objects, interactions with the environment like
-turning lights on, opening drawers, doors...) in a first-person-shooter style.
+turning lights on, opening drawers, doors...) from a first-person-shooter perspective.
 This enables the researcher to quickly setup and test human-robot interactions
-with a tele-operated human model, hence with realistic human behaviours. As
-presented in~\cite{lemaignan2012morse}, the human avatar can be controlled from
-a Kinect-like device.  The same avatar can also be programmatically controlled
-by external scripts, as any robot in MORSE. With standard MORSE actuators like
+with a tele-operated human model, hence with realistic human behaviors. As
+presented in~\cite{lemaignan2012morse}, the human avatar can be controlled using
+a Kinect-like device. The same avatar can also be programmatically controlled
+by external scripts, like any robot in MORSE. With standard MORSE actuators like
 the \emph{waypoint} actuator, the researcher can for instance pre-define paths
 that the human avatar will follow in a simulated environment.
-
-
 
 \section{HRI Simulation : Five Scenarios}
 
@@ -218,13 +215,13 @@ sections five case-studies.  The first three scenarios, \emph{Situation
 Assessment for HRI and Simulated Feedback}, \emph{An Expectations Framework for
 Domestic Robot Assistants} and \emph{Preliminary Testing of Human-Aware
 Navigation Planner} illustrate the typically use-case for simulation: rather
-complex virtual environments are created where the human presence plays a
+complex virtual environments are created where human presence plays a
 central role, and HRI algorithms are tested in a convenient and repeatable way.
 The fourth scenario, \emph{Data Acquisition through Automatic Scene Generation}
 shows how simulation is used as an alternate source of input to train robots to
 behave in human environments, and the last scenario, \emph{Automated Execution
 of Prototype HRI Experiments}, presents how the simulator can be used to provide
-automatic testing of human-aware behaviours, fully integrated to the software
+automatic testing of human-aware behaviors, fully integrated to the software
 development workflow. Each of the presentations follow the same structure: we
 first introduce the scenario, we then highlight how simulation has been leveraged
 and its benefits, and we finally mention some of the shortcomings of the tool.
@@ -482,8 +479,8 @@ the usability to assess algorithms which rely on multimodal inputs.
 As a preliminary remark, we would like to briefly discuss the \emph{cost} of
 integrating MORSE into the scenarios we have presented so far. While estimating
 the global cost of the deployment of a simulator is difficult (it can not be
-measured only in quantitative ways), we have collected for each of the use-cases
-a simple metric: the count of simulator-related lines of code ({\sc LoC})
+measured only in quantitative ways), we have collected a simple metric for each 
+of the use-cases: the count of simulator-related lines of code ({\sc LoC})
 required to integrate MORSE into the project. This count appears to remain
 between 100 and 300 {\sc LoC} for each scenario: 263 {\sc LoC}
 for~\ref{sc:assessment}, 179 for~\ref{sc:expectations}, 115
@@ -566,7 +563,7 @@ Besides being able to control a human avatar in simulation programmatically and
 deterministically, the possibility to automatically generate believable and
 realistic crowd behaviours is being explored. In this context, the objective is
 to adopt in MORSE technologies previously developed for computer games to generate
-trajectories that control the MORSE avatars.  Based on the idea of \emph{social
+trajectories that control the MORSE avatars. Based on the idea of \emph{social
 forces}~\cite{helbing2001}, the work of~\cite{Szymanezyk2012crowd} is to be
 adapted to provide believable and realistic movement of several humans within
 MORSE. The approach is based on a grid-based representation that computes forces
