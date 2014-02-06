@@ -91,7 +91,7 @@ fundamental issues that simulation of human-robot interaction still faces.
 
 \subsection*{HRI and simulation}
 
-\begin{figure}[ht!]
+\begin{figure}[t]
       \centering 
       \includegraphics[width=0.9\linewidth]{morse_pr2.jpg}
       \caption{Simulation and HRI: A PR2 and a human avatar in MORSE.}
@@ -179,23 +179,23 @@ provided and enables fast creation of simulation scenarios, while custom
 components can be added via Python (for the behaviours) and Blender (for the 3D
 design).
 
-Two MORSE features stand out. First, MORSE has been primarily designed with a
-command-line interface, and only features a minimal (and fully optional)
-graphical user interface. This makes MORSE mainly targeted to an academic
-audience, where efficiency and lightness prevail.  Simulation scenes are
-actually short Python programs, thus well suited for sharing and versioning.
-This also eases the integration of the simulator into larger development
-workflows, and MORSE is successfully integrated into several continuous
-integration systems (Travis, Jenkins).
+%Two MORSE features stand out. First, MORSE has been primarily designed with a
+%command-line interface, and only features a minimal (and fully optional)
+%graphical user interface. This makes MORSE mainly targeted to an academic
+%audience, where efficiency and lightness prevail.  Simulation scenes are
+%actually short Python programs, thus well suited for sharing and versioning.
+%This also eases the integration of the simulator into larger development
+%workflows, and MORSE is successfully integrated into several continuous
+%integration systems (Travis, Jenkins).
 
-Second, MORSE has a concept of \emph{abstraction levels}: sensors and actuators
+MORSE also introduces a concept of \emph{abstraction levels}: sensors and actuators
 may expose several levels of abstraction, corresponding to different level of
 realism. For instance, users may choose if the odometry sensor returns only a
 curvilinear distance, a $dX, dY, dZ$ differential vector, or the absolute
 position of the robot (integrated odometry). This allows users that are testing
 low-level components to do so, while users working at a higher abstraction
 levels (typically in HRI) do not have to run full robotic software stacks (and
-thus, benefit from a lighter environment), and can work in a more deterministic
+thus, benefit from a lighter environment) and can work in a more deterministic
 environment. This feature can be finely controlled, on a per-component basis.
 
 For HRI applications, MORSE provides a human avatar that can be fully controlled
@@ -243,7 +243,7 @@ through abstracted, symbolic cameras provided by MORSE (so-called
 the human is sitting in a couch and ask the robot to bring specific objects that
 may be in another room.
 
-\begin{figure}[H]
+\begin{figure}[t]
       \centering
       \includegraphics[width=0.9\linewidth]{morsespark.png}
       \caption{On the left side, the MORSE environment ; on the right side, the same
@@ -290,7 +290,7 @@ gain many insights into the problem domain in a scenario that would not been
 possible within our project and ultimately led to the successful validation of
 the approach in a spatially limited real-world scenario.
 
-\begin{figure}[H]
+\begin{figure}[t]
       \centering
       \includegraphics[width=0.9\linewidth]{morse_apartment.png}
       \caption{A simulated apartment with a domestic service robot and a person.}
@@ -326,10 +326,10 @@ to review the algorithm before it was deployed on the PR2 robot to carry out
 real-world experiments (whose results have been published
 in~\cite{ThibaultKruse2014}).
 
-\begin{figure}[H]
+\begin{figure}[b]
       \centering
       \includegraphics[width=0.9\linewidth]{morsehanp.png}
-      \caption{Test of human-aware navigation within MORSE}
+      \caption{Human-aware navigation within MORSE}
       \label{fig|hanp}
 \end{figure}
 
@@ -410,7 +410,7 @@ goals. Also the addition and/or removal of objects at run-time would be a nice
 feature as a running MORSE instance could be used more flexible, for example,
 as a robot's belief state.
 
-\begin{figure}[tb]
+\begin{figure}[t]
   \centering
   \includegraphics[width=.9\columnwidth]{figs/scenes.png}
   \caption{Automatically generated scenes of office desks.}
@@ -435,7 +435,7 @@ report the location of a virtual human in a domestic environment. Both the
 robot and the human are moving in the scene and meet in front of a table
 (figure~\ref{fig|proto}).
 
-\begin{figure}[H]
+\begin{figure}[t]
       \centering
       \includegraphics[width=0.9\linewidth]{proto-setup.png}
       \caption{Prototype HRI Simulation.}
@@ -479,38 +479,36 @@ the usability to assess algorithms which rely on multimodal inputs.
 
 \section{Discussion: A Place for Simulation in HRI?}
 
-As a preliminary remark, we'd like to briefly discuss the \emph{cost} of
+As a preliminary remark, we would like to briefly discuss the \emph{cost} of
 integrating MORSE into the scenarios we have presented so far. While estimating
-the global cost of deploying a simulator is difficult (it can not be measured
-only in quantitative ways), we have collected for each of the use-cases a simple
-metric: the count of simulator-related lines of code ({\sc LoC}) required to
-integrate MORSE into the project. This count appears to remain between 100 and
-300 {\sc LoC} for each scenario: 263 {\sc LoC} for~\ref{sc:assessment}, 179
-for~\ref{sc:expectations}, 115 for~\ref{sc:navigation}, 136
-for~\ref{sc:generation}, and 229 for~\ref{sc:ci}.  This count includes Python
-code and the shell scripts and launch files created to deploy the scenarios in
-MORSE. These numbers give some hints regarding the integration effort, which
-appear to be low for these use-cases.
+the global cost of the deployment of a simulator is difficult (it can not be
+measured only in quantitative ways), we have collected for each of the use-cases
+a simple metric: the count of simulator-related lines of code ({\sc LoC})
+required to integrate MORSE into the project. This count appears to remain
+between 100 and 300 {\sc LoC} for each scenario: 263 {\sc LoC}
+for~\ref{sc:assessment}, 179 for~\ref{sc:expectations}, 115
+for~\ref{sc:navigation}, 136 for~\ref{sc:generation}, and 229 for~\ref{sc:ci}.
+This count includes Python code and the shell scripts and launch files created
+to deploy the scenarios. These numbers give an idea of the integration effort,
+which appear to be relatively low for these use-cases.
 
-Generally speaking, we believe, as researchers in HRI,  that simulation holds a
-rightful place, both as an efficient engineering support tool, and as a novel
-source of realistic yet repeatable (hence comparable) human inputs for our
-systems. As such, the five scenarios that are presented here cover a range of
-use-cases.  Using a simulator to provide a reference environment with repeatable
-conditions (as in scenarios~\ref{sc:assessment}, \ref{sc:expectations} and
-\ref{sc:navigation}) is the expected role of a robotic simulator. Here, MORSE
-simply provides additional tools to represent and control humans, either in
-perfectly repeatable ways (by pre-programming the human behaviour) or in less
-repeatable but also more realistic ways (in the ``first-person shooter'' mode).
-In these scenarios, simulation also appears useful to test a variety of
-different (controlled) conditions in rather complex environments, and makes it
-tractable even for individual PhD students. This would be hardly doable on a
+The five scenarios that are presented here cover a range of use-cases, and
+highlight different applications of simulation in HRI. Using a simulator to
+provide a reference environment with repeatable conditions (as in
+scenarios~\ref{sc:assessment}, \ref{sc:expectations} and \ref{sc:navigation}) is
+the expected role of a robotic simulator. Here, MORSE simply provides additional
+tools to represent and control humans, either in perfectly repeatable ways (by
+pre-programming the human behaviour) or in less repeatable but also more
+realistic ways (in the ``first-person shooter'' mode).  In these scenarios,
+simulation also appears useful to test a variety of different (controlled)
+conditions in rather complex environments, and makes it tractable to carry HRI
+experiments even for individual PhD students. This would be hardly doable on a
 daily basis if it was to be conducted on real robots.  Also mentioned, the
 simulator plays an important role in several international projects, where it is
-often the only way to share a common experimental setting.
+the simplest way to share a common experimental setting.
 
 Other, less obvious, use-cases for HRI simulation are also reported. The
-``programmability'' of the simulator makes it a convenient tool for data
+\emph{programmability} of the simulator makes it a convenient tool for data
 synthesis and acquisition in dynamic human environments
 (scenario~\ref{sc:generation}), the concept of \emph{abstraction levels} can be
 used to iteratively refine the algorithms, getting closer and closer to the
@@ -528,8 +526,8 @@ interaction.
 
 Several issues are also raised. In its current state, the MORSE simulator
 provides only an incomplete model of the environment. Sounds/speech models are
-missing, and the ability to dynamically alter the simulated scene (in reaction
-to particular events, for instance) is also perceived as something important.
+incomplete, and the ability to dynamically alter the simulated scene (in reaction
+to particular events, for instance) is also perceived as something currently lacking.
 Similarly, the human model(s) does not yet provide good enough accuracy, both at
 the level of the user interface (some actions can not be done with the
 interactive avatar), and at the simulation level (poor/missing walking cycles
@@ -540,7 +538,7 @@ could be addressed at the software level, show that simulators dedicated to HRI
 application still need to mature.  In that regard, the next section presents
 some of the directions that are currently researched.
 
-\paragraph*{The next steps}
+\subsection*{The next steps}
 
 Several noteworthy developments related to HRI are currently shaping up in the
 MORSE community. We outline below some of them, that suggest new applications we
@@ -557,7 +555,7 @@ this feature to reach its full potential, {\sc MakeHuman} should however be
 extended to support programmatic generation of models, since the graphical user
 interface is currently required.
 
-\begin{figure}[tb]
+\begin{figure}[t]
   \centering
   \includegraphics[width=.9\columnwidth]{figs/makehuman.png}
   \caption{Procedural generation of human models with {\sc MakeHuman}.}
@@ -591,7 +589,7 @@ movements and small displacement (in a 2-3m\textsuperscript{2} zone) could be
 fairly accurately transposed from the physical world to the simulation, the
 overall interaction was not yet immersive (no head tracking, limited,
 non-dynamic field of view on a TV screen, no sound). Two distinct projects are
-currently looking into extending this line of research, one (at Bielefield
+currently looking into extending this line of research, one (at Bielefeld
 University) aiming at integrating emerging Virtual Reality devices (like Occulus
 Rift) with MORSE, the other one (MarDI project) developing a virtual reality
 cave, that include 360° projections and spatialized sound.
@@ -608,7 +606,7 @@ features a limited WebGL client, that act as a proof-of-concept.
 %stage), is a last development that can have significant applications for
 %HRI\fixme{finish that}
 
-%\paragraph*{To conclude}
+\subsection*{Conclusion}
 
 These examples and ideas hopefully give a picture of the lively landscape of the
 ``Simulation for HRI'' community, that has built itself around the MORSE
