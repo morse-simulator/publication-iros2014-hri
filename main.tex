@@ -313,10 +313,10 @@ like table setting, where humans often use both arms for pick and place actions.
 \label{sc:navigation}
 
 To evaluate the improvements in the human-aware navigation planner developed at
-LAAS we carried out a user study. For the user study an experiment was set up,
+LAAS we carried out a user study. An experiment was set up,
 where a robot encounters a human crossing its path (at $90^{\circ }$ angle to
 each other) while the robot is moving forward to its navigation goal. For
-preliminary testing of the planning algorithm, our lab areas was simulated in
+preliminary testing of the planning algorithm, our lab area was simulated in
 MORSE (figure ~\ref{fig|hanp}). This simulated environment was extensively used
 to review the algorithm before it was deployed on the PR2 robot to carry out
 real-world experiments (whose results have been published
@@ -346,12 +346,12 @@ SPENCER\footnote{\url{http://www.spencer.eu}}, we plan to develop novel
 algorithms for robot navigation in large populated environments, \eg airports.
 In the future we plan to use MORSE to simulate such large environment with
 multiple human models. This will certainly push the limits of simulation for HRI
-and hopefully provide new benchmark for MORSE.
+and hopefully provide new benchmarks.
 
 \emph{Specific limitations} All DoFs of the human posture in MORSE already have an
-interface support for the {\sc pocolibs} and YARP middlewares. It would be a valuable
-addition to MORSE to add a ROS interface for the same, and publish all these
-DoFs as coordinate frames using the typical {\tt tf} package. Moreover, an easier
+interface support for the {\sc pocolibs} and YARP middleware. A ROS interface
+for the same would be a valuable addition, by publishing these DOFs
+as coordinate frames using the typical {\tt tf} package. Moreover, an easier
 way to attach camera to the human eyes would be appreciated. For HRI experiments
 this will give a human perspective on the robot actions and its effects on the
 environment.
