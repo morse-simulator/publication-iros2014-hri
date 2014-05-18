@@ -1,6 +1,4 @@
-\documentclass[letterpaper, 10pt, conference]{ieeeconf}
-\overrideIEEEmargins
-\IEEEoverridecommandlockouts                              % This command is only needed if 
+\documentclass{llncs}
 
 % UTF8 support
 \usepackage[utf8x]{inputenc}
@@ -19,34 +17,34 @@
 \newcommand{\etal}{{\textit{et al.~}}}
 \newcommand{\ie}{{\textit{i.e.~}}}
 
+\begin{document}
 
 \title{Simulation and HRI: Recent Perspectives}
 
 \author{
-Séverin Lemaignan$^{1}$,
-Marc Hanheide$^{2}$,
-Michael Karg$^{3}$,
-Harmish Khambhaita$^{4}$,\\
-Lars Kunze$^{5}$,
-Florian Lier$^{6}$,
-Ingo Lütkebohle$^{7}$ and
-Grégoire Milliez$^{4}$%
-\thanks{$^{1}$S. Lemaignan is with Computer-Human Interaction for Learning and Instruction, École Polytechnique Fédérale de Lausanne, Switzerland}
-\thanks{$^{2}$M. Hanheide is with Lincoln Centre for Autonomous Systems, University of Lincoln, Lincoln, United Kingdom}
-\thanks{$^{3}$M. Karg is with Institute for Advanced Study, Technische Universität München, Garching, Germany}
-\thanks{$^{4}$H. Khambhaita and G. Milliez are with Laboratoire d'Analyse et d'Architecture des Système, Université de Toulouse, Toulouse, France}
-\thanks{$^{5}$L. Kunze is with Intelligent Robotics Lab, School of Computer Science, University of Birmingham, United Kingdom}
-\thanks{$^{6}$F. Lier is with Cognitive Interaction Technology --- Center of Excellence, Bielefeld University, Bielefeld, Germany}
-\thanks{$^{7}$I. Lütkebohle is with Machine Learning and Robotics Lab, Institute for Parallel and Distributed Systems, Universität Stuttgart, Germany}
+Séverin Lemaignan\inst{1} \and 
+Marc Hanheide\inst{2} \and 
+Michael Karg\inst{3} \and 
+Harmish Khambhaita\inst{4} \and \\
+Lars Kunze\inst{5} \and 
+Florian Lier\inst{6} \and 
+Ingo Lütkebohle\inst{7} \and 
+Grégoire Milliez\inst{4}
 }
 
+\authorrunning{Séverin Lemaignan et al.}
 
-\begin{document}
+\institute{CHILI Lab, EPFL, Lausanne, Switzerland
+\and Centre for Autonomous Systems, University of Lincoln, United Kingdom
+\and IAS, Technische Universität München, Germany
+\and LAAS/CNRS, Université de Toulouse, France
+\and Intelligent Robotics Lab, University of Birmingham, United Kingdom
+\and CITEC, Universität Bielefeld, Germany
+\and Machine Learning and Robotics Lab, Universität Stuttgart, Germany}
+
+
 
 \maketitle
-\thispagestyle{empty}
-\pagestyle{empty}
-
 
 \begin{abstract}
 
@@ -93,7 +91,7 @@ fundamental issues that simulation of human-robot interaction still faces.
 
 \begin{figure}[t]
       \centering 
-      \includegraphics[width=0.9\linewidth]{morse_pr2.jpg}
+      \includegraphics[width=0.7\linewidth]{morse_pr2.jpg}
       \caption{Simulation and HRI: A PR2 and a human avatar in MORSE.}
       \label{fig|morse-hri}
 \end{figure}
@@ -242,7 +240,7 @@ may be in another room.
 
 \begin{figure}[t]
       \centering
-      \includegraphics[width=0.9\linewidth]{morsespark.png}
+      \includegraphics[width=0.7\linewidth]{morsespark.png}
       \caption{On the left side, the MORSE environment ; on the right side, the same
       environment, as perceived by the robot in the SPARK situation assessment
       module.}
@@ -289,7 +287,7 @@ the approach in a spatially limited real-world scenario.
 
 \begin{figure}[t]
       \centering
-      \includegraphics[width=0.9\linewidth]{morse_apartment.png}
+      \includegraphics[width=0.7\linewidth]{morse_apartment.png}
       \caption{A simulated apartment with a domestic service robot and a person.}
       \label{fig|apartment}
 \end{figure}
@@ -318,17 +316,11 @@ LAAS we carried out a user study. An experiment was set up,
 where a robot encounters a human crossing its path (at $90^{\circ }$ angle to
 each other) while the robot is moving forward to its navigation goal. For
 preliminary testing of the planning algorithm, our lab area was simulated in
-MORSE (figure ~\ref{fig|hanp}). This simulated environment was extensively used
+MORSE. This simulated environment was extensively used
 to review the algorithm before it was deployed on the PR2 robot to carry out
 real-world experiments (whose results have been published
 in~\cite{ThibaultKruse2014}).
 
-\begin{figure}[b]
-      \centering
-      \includegraphics[width=0.9\linewidth]{morsehanp.png}
-      \caption{Human-aware navigation within MORSE}
-      \label{fig|hanp}
-\end{figure}
 
 \emph{Benefits of the simulation} Development of human-robot interaction
 algorithms often require iterative process of prototyping, testing and
@@ -409,7 +401,7 @@ as a robot's belief state.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=.9\columnwidth]{figs/scenes.png}
+  \includegraphics[width=.7\columnwidth]{figs/scenes.png}
   \caption{Automatically generated scenes of office desks.}
   \label{fig:simulated-desktop-scenes}
 \end{figure}
@@ -429,15 +421,8 @@ and a Continuous Integration (CI) server to centralize experiment execution. In
 our setup we bootstrap and execute a simulated prototype system on a CI server
 and assess the results in each run. In this particular scenario, a robot must
 report the location of a virtual human in a domestic environment. Both the
-robot and the human are moving in the scene and meet in front of a table
-(figure~\ref{fig|proto}).
+robot and the human are moving in the scene and meet in front of a table.
 
-\begin{figure}[t]
-      \centering
-      \includegraphics[width=0.9\linewidth]{proto-setup.png}
-      \caption{Prototype HRI Simulation.}
-      \label{fig|proto}
-\end{figure}
 
 The goal of this simulation setup is to incrementally decrease the level of
 abstraction until a satisfactory/sufficient degree of ``realism'' to make an
@@ -475,19 +460,6 @@ predefined object, sit down on a chair/sofa or open a door. Lastly, audio suppor
 the usability to assess algorithms which rely on multimodal inputs.  
 
 \section{Discussion: A Place for Simulation in HRI?}
-
-As a preliminary remark, we would like to briefly discuss the \emph{cost} of
-integrating MORSE into the scenarios we have presented so far. While estimating
-the global cost of the deployment of a simulator is difficult (it can not be
-measured only in quantitative ways), we have collected a simple metric for each 
-of the use-cases: the count of simulator-related lines of code ({\sc LoC})
-required to integrate MORSE into the project. This count appears to remain
-between 100 and 300 {\sc LoC} for each scenario: 263 {\sc LoC}
-for~\ref{sc:assessment}, 179 for~\ref{sc:expectations}, 115
-for~\ref{sc:navigation}, 136 for~\ref{sc:generation}, and 229 for~\ref{sc:ci}.
-This count includes Python code and the shell scripts and launch files created
-to deploy the scenarios. These numbers give an idea of the integration effort,
-which appear to be relatively low for these use-cases.
 
 The five scenarios that are presented here cover a range of use-cases, and
 highlight different applications of simulation in HRI. Using a simulator to
@@ -543,21 +515,10 @@ believe relevant to HRI research.
 
 A first line of investigation relates to the procedural generation of a variety
 of realistic human models. {\sc MakeHuman} is such an open-source tool that
-generates anatomically, kinetically and visually realistic human models
-(figure~\ref{fig:makehuman}). This software has a tight integration with Blender,
+generates anatomically, kinetically and visually realistic human models. This software has a tight integration with Blender,
 and MORSE is soon to provide as well seamless integration with {\sc MakeHuman}
 models. This will bring a wide range of characters to feed the simulations,
-and extend testing environments with gender/size/age/skin color variances.  For
-this feature to reach its full potential, {\sc MakeHuman} should however be
-extended to support programmatic generation of models, since the graphical user
-interface is currently required.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=.9\columnwidth]{figs/makehuman.png}
-  \caption{Procedural generation of human models with {\sc MakeHuman}.}
-  \label{fig:makehuman}
-\end{figure}
+and extend testing environments with gender/size/age/skin color variances.
 
 Besides being able to control a human avatar in simulation programmatically and
 deterministically, the possibility to automatically generate believable and
@@ -566,13 +527,8 @@ to adopt in MORSE technologies previously developed for computer games to genera
 trajectories that control the MORSE avatars. Based on the idea of \emph{social
 forces}~\cite{helbing2001}, the work of~\cite{Szymanezyk2012crowd} is to be
 adapted to provide believable and realistic movement of several humans within
-MORSE. The approach is based on a grid-based representation that computes forces
-for individual agents by combining information from other agents (\eg social
-distances and group forming), from the environment (\eg obstacle avoidance) and
-from a pre-defined set of individual goals, defined for each agent. The
-resulting velocity vector for each agent can be directly interfaced with several
-instances of MORSE avatar to generate natural movement trajectories. This
-implementation can provide a more realistic and dynamic environment to study
+MORSE. This
+implementation would provide a more realistic and dynamic environment to study
 human-robot spatial interaction and to provide a testbed for human-aware motion
 planning, to give two exemplary use cases.
 
