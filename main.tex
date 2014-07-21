@@ -130,7 +130,7 @@ human agent behaviors to relatively simple motions and interactions, and perhaps
 not surprisingly, most HRI simulations so far are carried out either with
 algorithmically-defined automatic human behaviors (typically, simulation of
 crowds or
-pedestrians~\cite{henry2010learning,garrell2010model}) or in
+pedestrians) or in
 \emph{tele-operation} settings, where only the robot and the environment, but
 not the human agent, are actually simulated.
 
@@ -463,31 +463,41 @@ predefined object, sit down on a chair/sofa or open a door. Lastly, audio suppor
 \ie Text-to-Speech output for the human component would significantly increase
 the usability to assess algorithms which rely on multimodal inputs.  
 
-\section{Discussion: The Place for Simulation in HRI}
+\section{Discussion: Towards Unification}
 
-The five scenarios that are presented here cover a range of use-cases, and
-highlight different applications of simulation in HRI. Using a simulator to
-provide a reference environment with repeatable conditions (as in
-scenarios~\ref{sc:assessment}, \ref{sc:expectations} and \ref{sc:navigation}) is
-the expected role of a robotic simulator. Here, MORSE simply provides additional
-tools to represent and control humans, either in perfectly repeatable ways (by
-pre-programming the human behavior) or in less repeatable but also more
-realistic ways (in the ``first-person shooter'' mode).  In these scenarios,
-simulation also appears useful to test a variety of different (controlled)
-conditions in rather complex environments, and makes it tractable to carry HRI
-experiments even for individual PhD students. This would be hardly doable on a
-daily basis if it was to be conducted on real robots.  Also mentioned, the
-simulator plays an important role in several international projects, where it is
-the simplest way to share a common experimental setting.
+Looking at recent literature on simulation and HRI, several distinct approaches
+seem to emerge. In Henry et al.~\cite{henry2010learning}, the simulator is used
+for evaluating their approach to navigation in crowds, prior to real-world
+evaluation. In contrast, Garrell et al.~\cite{garrell2010model} describe the
+\emph{real world validation} of a pedestrian model, with the eventual goal of
+using that model for simulation. Kidokoro et al.~\cite{kidokoro2013will} (in a
+somehow similar way to Hoffmann and Breazeal~\cite{hoffman2010effects}) take a
+different approach and use a simulator to compare different situations. They use
+the simulator as a \emph{computation engine} for spatial computations (in this
+case, human comfort in the different situations). Finally, Breazeal et
+al.~\cite{breazeal2013crowdsourcing} represent yet another use case, with the use
+of the simulation inside a game environment that allows humans to play the
+various agents, generating easily captured data for later analysis.
 
-Other, less obvious, use-cases for HRI simulation are also reported. The
-\emph{programmability} of the simulator makes it a convenient tool for data
-synthesis and acquisition in dynamic human environments
-(scenario~\ref{sc:generation}), the concept of \emph{abstraction levels} can be
-used to iteratively refine the algorithms, getting closer and closer to the
-actual sensors outputs (scenario~\ref{sc:ci}), and finally, automated testing of
-human-aware robotic softwares as presented in scenario~\ref{sc:ci} opens
-interesting perspectives to improve development workflows in HRI.
+While the five scenarios that we present here implement different use-cases,
+they actually cover similar approaches, while relying on the same simulator:
+study~\ref{sc:assessment} shows how MORSE can be thought as a computation
+engine, \ref{sc:expectations} exploits the human agent in a computer game style,
+\ref{sc:navigation} uses MORSE for assessing and tuning the performance of
+algorithms, and scenario~\ref{sc:generation}, while somewhat unique, still share
+similarities with Garrell et al., in that a model for object positions is
+trained on real-world data. Finally, the use-case presented in~\ref{sc:ci}
+proposes a different approach, with a focus on continuous testing, and can
+arguably be seen as the natural progression of using simulators for evaluation,
+extended here to cover HRI scenarios.
+
+From this perspective, one may consider that the experiments recently conducted
+in the MORSE community around the simulation of HRI applications constitute the
+first steps towards building an unifying platform for HRI simulation, with two
+additional features: its \emph{programmability} (simulation scenarios are Python
+scripts) and its concept of \emph{abstraction levels} that provides an effective
+way to focus simulation on a particular problem by hiding irrelevant simulation
+artifacts.
 
 These diverse use-cases support the idea that simulation is not only actually
 useful as a support tool for development of human-robot applications, but also
@@ -497,19 +507,17 @@ difficult to deploy, test and repeat, we show here how a simulator may enable
 automated testing of more and more complex scenarios, including long-term
 interaction.
 
-Several issues are also raised. In its current state, the MORSE simulator
-provides only an incomplete model of the environment. Sounds/speech models are
-incomplete, and the ability to dynamically alter the simulated scene (in reaction
-to particular events, for instance) is also perceived as something currently lacking.
-Similarly, the human model(s) does not yet provide good enough accuracy, both at
-the level of the user interface (some actions can not be done with the
-interactive avatar), and at the simulation level (poor/missing walking cycles
-for instance). Finally, the overall convenience of MORSE for HRI could be
-improved, for instance by providing more assets (furnitures, objects,...)
-related to human environments.  These issues, that are mostly technical and
-could be addressed at the software level, show that simulators dedicated to HRI
-application still need to mature.  In that regard, the next section presents
-some of the directions that are currently researched.
+Several issues are also raised and must be clearly stated. In its current state,
+the MORSE simulator provides only an incomplete model of the environment.
+Sounds/speech models are incomplete, and human models do not yet provide good
+enough accuracy, both at the level of the user interface (some actions can not
+be done with the interactive avatar), and at the simulation level (poor/missing
+walking cycles for instance). Finally, the overall convenience of MORSE for HRI
+could be improved, for instance by providing more assets (furnitures, objects)
+related to human environments. These issues, that are mostly technical and could
+be addressed at the software level, show that simulators dedicated to HRI
+application still need to mature. In that regard, the next section presents some
+of the directions that are currently researched.
 
 \subsection*{The next steps}
 
