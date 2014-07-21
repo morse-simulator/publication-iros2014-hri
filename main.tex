@@ -2,7 +2,6 @@
 
 % UTF8 support
 \usepackage[utf8x]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{float}
@@ -19,7 +18,7 @@
 
 \begin{document}
 
-\title{Simulation and HRI: Recent Perspectives}
+\title{Simulation and HRI\\Recent Perspectives with the MORSE Simulator}
 
 \author{
 Séverin Lemaignan\inst{1} \and 
@@ -64,7 +63,7 @@ sometimes in scenarios we do not anticipate.
 
 \section{Introduction}
 
-Simulation of human-robot interaction is a challenge: it lies at the crossroad
+Simulation of human-robot interaction is a challenge: it lays at the crossroad
 of \emph{robotic simulation} (which brings in requirements like physical
 accuracy, low latencies, high bandwidth, integration within complex software
 architectures) and \emph{embodied virtual agents} (which also brings in its own
@@ -97,10 +96,10 @@ fundamental issues that simulation of human-robot interaction still faces.
 \end{figure}
 
 When we mention simulators in the following, we refer to simulation engines with
-support for physically simulating both robot kinematics and dynamics, as well as
+support for physically simulating robot kinematics and dynamics, as well as
 physical objects in the environment, and where the control and sensor interface
 is close to or the same as it is on real robots. In this paper, we beside
-only consider engines that support rendering and animation of human agents
+only consider engines that support rendering, animation and control of human agents
 suitable for HRI, and which have been actually used in this context (while many
 engines could theoretically support this use case, few of them have actually
 demonstrated it). For the interested reader, a broader overview of research in
@@ -128,20 +127,22 @@ Unreal Tournament Development Kit and Ogre3D, respectively). While their
 built-in support for human models varies, all of these engines require the
 developer to specify the agents' behavior in detail. In practice, this limits
 human agent behaviors to relatively simple motions and interactions, and perhaps
-not surprisingly, most HRI simulations so far are carried out in
+not surprisingly, most HRI simulations so far are carried out either with
+algorithmically-defined automatic human behaviors (typically, simulation of
+crowds or
+pedestrians~\cite{henry2010learning,garrell2010model}) or in
 \emph{tele-operation} settings, where only the robot and the environment, but
 not the human agent, are actually simulated.
 
-In contrast, current work on embodied virtual agents (EVA) usually provides 
-higher-level functionality, such as simulated emotion dynamics, behavior 
-generation based on action primitives, conversational dialogue systems, and
-up to cognitive simulations. However, integrating these into a coherent 
-system with an acceptable interface remains 
-challenging~\cite{gratch2002creating}. We do not think that general-purpose
-simulators will acquire any of these functions soon. However, they could be
-capable of integrating external components, for example, by offering 
-an interface for the Behavior Markup Language~\cite{kopp2006towards} popular
-in the EVA community, or by exposing a (lower-level) 
+In contrast, current work on embodied virtual agents (EVA) usually provides
+higher-level functionality, such as simulated emotion dynamics, behavior
+generation based on action primitives, conversational dialogue systems, and up
+to cognitive simulations. However, integrating these into a coherent system with
+an acceptable interface remains challenging~\cite{gratch2002creating}. We do not
+think that general-purpose simulators will acquire any of these functions soon.
+However, they could be capable of integrating external components, for example,
+by offering an interface for the Behavior Markup Language
+popular in the EVA community, or by exposing a (lower-level)
 H-Anim\footnote{\url{http://www.h-anim.org/}} interface. H-Anim is already
 supported by Blender, MORSE's foundation.
 
@@ -215,8 +216,12 @@ Domestic Robot Assistants} and \emph{Preliminary Testing of Human-Aware
 Navigation Planner} illustrate the typically use-case for simulation: rather
 complex virtual environments are created where human presence plays a
 central role, and HRI algorithms are tested in a convenient and repeatable way.
+Note that, while we introduce here \emph{simulation-only} scenarios, they all
+are test-cases of experiments that have been conducted on real robots:
+simulation is used here to support real-world deployments.
+
 The fourth scenario, \emph{Data Acquisition through Automatic Scene Generation}
-shows how simulation is used as an alternate source of input to train robots to
+shows how simulation is used as an alternative source of input to train robots to
 behave in human environments, and the last scenario, \emph{Automated Execution
 of Prototype HRI Experiments}, presents how the simulator can be used to provide
 automatic testing of human-aware behaviors, fully integrated to the software
@@ -230,13 +235,13 @@ and its benefits, and we finally mention some of the shortcomings of the tool.
 When studying human-robot interaction, understanding the environment in which
 agents will interact is a key issue. In this first application, MORSE provides a
 virtual environment that we use to harness situation assessment algorithms
-(performed by a software called SPARK ~\cite{Warnier2012a}, for SPAtial Reasoning and Knowledge) that
-also include human-centered \emph{perspective taking}. The robot updates its
-knowledge in SPARK using its own position, human position and objects seen
-through abstracted, symbolic cameras provided by MORSE (so-called
-\emph{semantic} cameras). In this particular scenario (figure~\ref{fig|spark}),
-the human is sitting in a couch and ask the robot to bring specific objects that
-may be in another room.
+(performed by a software called SPARK ~\cite{Warnier2012a}, for SPAtial
+Reasoning and Knowledge) that also include human-centered \emph{perspective
+taking}. The robot updates its knowledge in SPARK using its own position, human
+position and objects seen through abstracted, symbolic cameras provided by MORSE
+(so-called \emph{semantic} cameras). In this particular scenario
+(figure~\ref{fig|spark}), the human is sitting in a couch and ask the robot to
+bring specific objects that may be in another room.
 
 \begin{figure}[t]
       \centering
@@ -265,25 +270,25 @@ propagation models), thus only providing an incomplete model of the environment.
 \subsection{An Expectations Framework for Domestic Robot Assistants}
 \label{sc:expectations}
 
-In this scenario, an apartment is simulated in which a domestic 
-service robot is living together with a person (figure~\ref{fig|apartment}). 
-A PR2 robot is controlled via ROS and the {\sc Cram} reactive plan language, 
-which is used on several other real robots~\cite{pancakes11humanoids}. The robots' 
-duty is to observe the person performing different activities and detect unexpected 
-situations based on the validation of different types of expectations~\cite{Karg2013}. 
-The detection of such unexpected behavior can help future domestic service robots 
-to better assess situations and adapt their actions to human behavior.
+In this scenario, an apartment is simulated in which a domestic service robot is
+living together with a person (figure~\ref{fig|apartment}).  A PR2 robot is
+controlled via ROS and the {\sc Cram} reactive plan language, which is used on
+several other real robots. The robots' duty is to observe the person performing
+different activities and detect unexpected situations based on the validation of
+different types of expectations~\cite{Karg2013}.  The detection of such
+unexpected behavior can help future domestic service robots to better assess
+situations and adapt their actions to human behavior.
 
-\emph{Benefits of the simulation} The use of the MORSE simulator enabled us to set up a large, 
-testbed by combining realistic robot control via the ROS middleware with the
-unpredictability of human behavior using the human component of MORSE. Setting
-up of such an apartment in a real-world setting, together with a suitable
-sensor setup and a reliable robot control, would not only introduce huge costs
-but would also be a time-consuming task which can distract researchers from
-their actual research focus. The use of the simulated scenario enables us to
-gain many insights into the problem domain in a scenario that would not been
-possible within our project and ultimately led to the successful validation of
-the approach in a spatially limited real-world scenario.
+\emph{Benefits of the simulation} The use of the MORSE simulator enabled us to
+set up a large testbed by reusing the real robot control layer via the ROS
+middleware and easy-to-generate unpredictable human behaviors using the human
+component of MORSE. Setting up of such an apartment in a real-world setting,
+together with a suitable sensor setup and a reliable robot control, would not
+only introduce huge costs but would also be a time-consuming task which can
+distract researchers from their actual research focus. The use of the simulated
+scenario enables us to gain many insights into the problem domain in a scenario
+that would not been possible within our project, while the algorithms were
+eventually validated on the real robot, inside a smaller real-world environment.
 
 \begin{figure}[t]
       \centering
@@ -343,7 +348,7 @@ and hopefully provide new benchmarks.
 
 \emph{Specific limitations} All DoFs of the human posture in MORSE already have an
 interface support for the {\sc pocolibs} and YARP middleware. A ROS interface
-for the same would be a valuable addition, by publishing these DOFs
+for the same would be a valuable addition, by publishing these DoFs
 as coordinate frames using the typical {\tt tf} package. Moreover, an easier
 way to attach camera to the human eyes would be appreciated. For HRI experiments
 this will give a human perspective on the robot actions and its effects on the
@@ -353,14 +358,16 @@ environment.
 \subsection{Data Acquisition through Automatic Scene Generation}
 \label{sc:generation}
 
-Autonomous mobile robots that are to help and assist people in care homes,
-households, and at other workplaces have to understand how human activities
-affect the dynamics of objects in the environment. That is, robots need to know,
-when, where and how people manipulate objects and how they arrange and structure
-them in space. In the context of the STRANDS
+This fourth study proposes a different perspective on the role of simulation in
+HRI: simulating credible human environments to train systems to appropriately
+react to them: autonomous mobile robots that are to help and assist people in
+care homes, households, and at other workplaces have to understand how human
+activities affect the dynamics of objects in the environment. That is, robots
+need to know, when, where and how people manipulate objects and how they arrange
+and structure them in space. In the context of the STRANDS
 project\footnote{\url{http://www.strands-project.eu}} we aim for robots that
 understand the long-term, spatio-temporal relationships of objects and
-activities of people. In the scenario described in this paper, we looked in
+activities of people. In the scenario described here, we looked in
 particular at learning qualitative spatial relations of objects on office desks.
 As an accurate classification and pose estimation of objects on real-world
 office desks is still a challenging and difficult task for current robot
@@ -388,10 +395,7 @@ to use the generated desktop scenes in web-applications to crowdsource Natural
 Language descriptions of object arrangements and commands for robots from
 Internet users.
 
-\emph{Specific limitations} The default installation of MORSE already includes a
-fair set of pre-modeled objects. However, these objects are spread over
-different environments and lack a coherent definition with respect to their
-reference frame, bounding box, and/or scale. A desirable feature would be that
+\emph{Specific limitations} A desirable feature would be that
 objects are kept in a global or some domain specific object databases and that
 they are modeled in a consistent way. This would ease the usage of different
 types of objects and thereby allow users and researchers to focus on their
@@ -510,22 +514,23 @@ some of the directions that are currently researched.
 \subsection*{The next steps}
 
 Several noteworthy developments related to HRI are currently shaping up in the
-MORSE community. We outline below some of them, that suggest new applications we
-believe relevant to HRI research.
+MORSE community. We outline below some of them, that suggest new applications
+that we believe are relevant to HRI research.
 
 A first line of investigation relates to the procedural generation of a variety
 of realistic human models. {\sc MakeHuman} is such an open-source tool that
-generates anatomically, kinetically and visually realistic human models. This software has a tight integration with Blender,
-and MORSE is soon to provide as well seamless integration with {\sc MakeHuman}
-models. This will bring a wide range of characters to feed the simulations,
-and extend testing environments with gender/size/age/skin color variances.
+generates anatomically, kinetically and visually realistic human models. This
+software has a tight integration with Blender, and MORSE is soon to provide as
+well seamless integration with {\sc MakeHuman} models. This will bring a wide
+range of characters to feed the simulations, and extend testing environments
+with gender/size/age/skin color variances.
 
 Besides being able to control a human avatar in simulation programmatically and
 deterministically, the possibility to automatically generate believable and
 realistic crowd behaviors is being explored. In this context, the objective is
 to adopt in MORSE technologies previously developed for computer games to generate
 trajectories that control the MORSE avatars. Based on the idea of \emph{social
-forces}~\cite{helbing2001}, the work of~\cite{Szymanezyk2012crowd} is to be
+forces}, the work of~\cite{Szymanezyk2012crowd} is to be
 adapted to provide believable and realistic movement of several humans within
 MORSE. This
 implementation would provide a more realistic and dynamic environment to study
@@ -552,8 +557,10 @@ efficiently support large scale HRI studies. The simulator and specific
 interaction scenarios would be embedded in a dedicated webpage and users would
 control a human avatar from their webbrowsers. This would potentially enable
 collection of large behavioral datasets. While MORSE development in that
-direction has yet to start, it can be noted that the Gazebo simulator already
-features a limited WebGL client, that act as a proof-of-concept.
+direction has yet to start, Breazeal et al. presented an initial attempt in that
+direction in~\cite{breazeal2013crowdsourcing} and the Gazebo simulator features
+a limited WebGL client that act as a proof-of-concept of on-line robotic
+simulation.
 
 %Faster-than-realtime simulation, a recent feature of MORSE (currently at testing
 %stage), is a last development that can have significant applications for
