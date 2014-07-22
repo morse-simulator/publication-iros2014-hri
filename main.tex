@@ -106,6 +106,50 @@ as common simulation platform.
       \label{fig|morse-hri}
 \end{figure}
 
+In the HRI literature, several distinct goals for
+the use of simulation can be discerned. We call these, without claim to 
+completeness, i) prototyping, ii) human modeling, iii) interactive simulation, 
+and, iv) predictive simulation.  
+
+The most well-known use case is probably \emph{prototyping}: The use of a simulator
+to reconstruct and run experiments in a simulated target situation. Apart from
+convenience, for HRI this is often important to prevent injury, e.g. as in Henry
+et al.~\cite{henry2010learning}, where navigation in human crowds is prototyped in 
+simulation.
+
+\emph{Human modeling} is one way of realizing human agents in simulation. For example,
+Garrell et al.~\cite{garrell2010model} present a pedestrian model which has been
+evaluated against a large-scale database of recorded human movements. This is
+currently particularly suitable for mass movements. When detailed
+motion or other actions (such as speaking) is required, cognitive models such
+as ACT-R\cite{} have often been used. It is probably safe to say that such models
+are still far from general, but already quite useful for specific situations.
+
+A problem with these approaches is the significant up-front effort
+required for modeling. Therefore, some research has explored the use game engines
+in what we call \emph{interactive simulation}: Here, a real human controls the simulated
+human agent (and sometimes also other aspects) interactively. While this is not
+totally automated, it can afford
+\emph{capture of interaction data}, to be used for later evaluation, e.g.,
+as in Breazeal et al.~\cite{breazeal2013crowdsourcing}. This is also sometimes
+called ``crowd-sourcing'', though it can also be used with individuals or smaller
+groups, not just crowds.
+
+A very different use of simulation is \emph{predictive simulation}. Here, 
+a simulator is used \emph{at runtime}, to
+be able to quickly explore the likely consequences of robotic actions. This
+uses simulation engines mainly to support spatial computations, e.g.,
+to compute social metrics such as walking comfort (e.g., cf., Kidokoro et 
+al.~\cite{kidokoro2013will}) or proxemics (e.g., cf., Hoffmann and 
+Breazeal~\cite{hoffman2010effects}). The general goal is to enable the system
+to choose an action based on these metrics.
+
+We believe it is clear that these use cases benefit from each other. Particularly
+prototyping requires models, which could be manually specified, learned from 
+real-world data, or learned interactively through the simulator.
+
+\subsection{Software for HRI Simulation}
+
 When we mention simulators in the following, we refer to simulation engines with
 support for physically simulating robot kinematics and dynamics, as well as
 physical objects in the environment, and where the control and sensor interface
@@ -475,20 +519,6 @@ predefined object, sit down on a chair/sofa or open a door. Lastly, audio suppor
 the usability to assess algorithms which rely on multimodal inputs.  
 
 \section{Discussion: Towards Unification}
-
-Looking at recent literature on simulation and HRI, several distinct approaches
-seem to emerge. In Henry et al.~\cite{henry2010learning}, the simulator is used
-for evaluating their approach to navigation in crowds, prior to real-world
-evaluation. In contrast, Garrell et al.~\cite{garrell2010model} describe the
-\emph{real world validation} of a pedestrian model, with the eventual goal of
-using that model for simulation. Kidokoro et al.~\cite{kidokoro2013will} (in a
-somehow similar way to Hoffmann and Breazeal~\cite{hoffman2010effects}) take a
-different approach and use a simulator to compare different situations. They use
-the simulator as a \emph{computation engine} for spatial computations (in this
-case, human comfort in the different situations). Finally, Breazeal et
-al.~\cite{breazeal2013crowdsourcing} represent yet another use case, with the use
-of the simulation inside a game environment that allows humans to play the
-various agents, generating easily captured data for later analysis.
 
 While the five scenarios that we present here implement different use-cases,
 they actually cover similar approaches, while relying on the same simulator:
