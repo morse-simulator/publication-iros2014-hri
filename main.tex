@@ -63,28 +63,40 @@ sometimes in scenarios we do not anticipate.
 
 \section{Introduction}
 
-Simulation of human-robot interaction is a challenge: it lays at the crossroad
-of \emph{robotic simulation} (which brings in requirements like physical
-accuracy, low latencies, high bandwidth, integration within complex software
-architectures) and \emph{embodied virtual agents} (which also brings in its own
-requirements like realistic human kinematics and visual rendering, complex
-behaviors, rich user interface), while still remaining a \emph{tool}: in order
-\emph{not} to stand in the way of our daily development workflow, it must
-\emph{feel} lightweight, responsive, easy to setup and deploy.
+The use of simulators for Human-Robot-Interaction (HRI) systems now encompasses 
+a variety of use cases, from prototyping through evaluation
+to anticipatory simulation at runtime. However, even more than robot software
+in general, it suffers from an integration problem: Simulation in HRI requires
+robot simulators in all their complexity \emph{plus} a means of representing 
+and interacting with
+human agents. Particularly the latter is currently very much in its infancy,
+and restricted to special applications only.
 
-This paper presents how the Modular OpenRobots Simulation Engine (MORSE,
-figure~\ref{fig|morse-hri})~\cite{morse_simpar_2012} simulator attempts to
+We believe that an important stepping stone for wider use of simulation in HRI
+is the availability of an integrated, easy-to-use framework that can encompass
+all currently important use-cases, and that provides an integration interface 
+for developers \emph{and} end-users of HRI simulation.  In particular, we feel
+that it must be both easy to install and use, and offer \emph{domain 
+abstractions} to facilitate development and integration.
+
+This paper presents how the ``Modular OpenRobots Simulation Engine'' (MORSE,
+figure~\ref{fig|morse-hri}~\cite{morse_simpar_2012}) simulator attempts to
 address this challenge to eventually provide a convenient support for research
-in human-robot interaction. We first give a brief overview of the simulator
-with a focus on HRI-specific features, and then report on several real-world
-applications. These five case-studies illustrate the collective nature of this
-article: we report on contributions and experiences in human-robot interaction
+in human-robot interaction. In the following, we first review the variety of 
+current use cases for simulation in HRI, then introduce MORSE with a focus on 
+HRI-specific features, and finally demonstrate and discuss MORSE's versatility
+through several case studies. 
+
+The case studies also illustrate the collective nature
+of this article: We report on contributions and experiences in human-robot interaction
 simulation from five unrelated projects, conducted by different people in
-different universities and research institutes, only sharing the MORSE simulator
-as common simulation platform. The sections~\ref{sc:assessment} to~\ref{sc:ci}
-present each of these projects, and try to highlight both the positive
-outcomes of deploying simulation environments for HRI, and the pitfalls and more
-fundamental issues that simulation of human-robot interaction still faces.
+different organizations, only sharing the MORSE simulator
+as common simulation platform. 
+
+%The sections~\ref{sc:assessment} to~\ref{sc:ci}
+%present each of these projects, and try to highlight both the positive
+%outcomes of deploying simulation environments for HRI, and the pitfalls and more
+%fundamental issues that simulation of human-robot interaction still faces.
 
 \subsection*{HRI and simulation}
 
