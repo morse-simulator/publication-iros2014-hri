@@ -38,7 +38,7 @@ Grégoire Milliez\inst{4}
 \and IAS, Technische Universität München, Germany
 \and LAAS/CNRS, Université de Toulouse, France
 \and Intelligent Robotics Lab, University of Birmingham, United Kingdom
-\and CITEC, Universität Bielefeld, Germany
+\and CITEC, Bielefeld University, Germany
 \and Machine Learning and Robotics Lab, Universität Stuttgart, Germany}
 
 
@@ -74,7 +74,7 @@ and restricted to special applications only.
 
 We believe that an important stepping stone for wider use of simulation in HRI
 is the availability of an integrated, easy-to-use framework that can encompass
-all currently important use-cases, and that provides an integration interface 
+all currently important use cases, and that provides an integration interface 
 for developers \emph{and} end-users of HRI simulation.  In particular, we feel
 that it must be both easy to install and use, and offer \emph{domain 
 abstractions} to facilitate development and integration.
@@ -268,7 +268,7 @@ To illustrate how simulation can support research in HRI, we present in the next
 sections five case-studies.  The first three scenarios, \emph{Situation
 Assessment for HRI and Simulated Feedback}, \emph{An Expectations Framework for
 Domestic Robot Assistants} and \emph{Preliminary Testing of Human-Aware
-Navigation Planner} illustrate the typically use-case for simulation: rather
+Navigation Planner} illustrate the typically use case for simulation: rather
 complex virtual environments are created where human presence plays a
 central role, and HRI algorithms are tested in a convenient and repeatable way.
 Note that, while we introduce here \emph{simulation-only} scenarios, they all
@@ -489,24 +489,25 @@ assumption about real world behavior, is reached --- in an integrated and
 continuous approach. In order to achieve this goal, we make use of two essential
 MORSE features: \textit{a)} the human avatar that can be steered (set waypoints)
 interactively via middleware and \textit{b)} a \emph{semantic} camera that
-extracts the location of a specific entity in the simulation environment.  The
+extracts the location of a specific entity in the simulation environment. The
 semantic camera is attached to the robot. If the human enters the robot's field
 of view, the location is reported and sent via middleware. After each CI run,
 the recorded movement trajectory of the human avatar is assessed (plotted) and
 archived. We have explicitly chosen to simplify the extraction of the location
 of the human to acquire a ground truth in the first iterations of the
-simulation. Based on the ground truth, we are able to exchange diverse
-components, \ie the semantic camera with a simulated laser scanner to build a
-person hypothesis for instance, thus gradually develop, assess and implement
-more complex scenarios. 
+simulation. As an example, a system component (running outside of the simulation) 
+that is intended to classify whether there is a human in front of a robot, by fusing 
+multiple sensory inputs, can be evaluated based on this ground truth. Subsequently, 
+we are able to exchange/add diverse virtual sensors, \ie add a simulated laser 
+scanner to build a person hypothesis for instance, thus gradually develop, 
+assess and implement more complex scenarios.
 
 \emph{Benefits of the simulation} First of all, the interactive (remotely
 controllable) human avatar is useful to include a dynamic, yet not too
-realistic, human component in this setup, which currently is a rare feature in
-the world of simulators. Secondly, the level of abstraction of different
+realistic, human component in this setup. Secondly, the level of abstraction of different
 sensors, \ie semantic camera versus virtual laser scanner enables us to
 gradually raise the level of complexity/realism and test different algorithms
-based on abstract and almost realistic sensor inputs.  Lastly, the chance to
+based on abstract and almost realistic sensor inputs. Lastly, the chance to
 deploy MORSE in a Continuous Integration environment, \ie automatically run
 simulation scripts, generates an additional benefit.
  
@@ -516,18 +517,18 @@ important if laser scans are used to build a person hypothesis. Additionally, th
 human avatar should feature (remotely) triggered ``actions'', \eg grasping a 
 predefined object, sit down on a chair/sofa or open a door. Lastly, audio support, 
 \ie Text-to-Speech output for the human component would significantly increase
-the usability to assess algorithms which rely on multimodal inputs.  
+the usability to assess algorithms which rely on multimodal inputs. 
 
 \section{Discussion: Towards Unification}
 
-While the five scenarios that we present here implement different use-cases,
+While the five scenarios that we present here implement different use cases,
 they actually cover similar approaches, while relying on the same simulator:
 study~\ref{sc:assessment} shows how MORSE can be thought as a computation
 engine, \ref{sc:expectations} exploits the human agent in a computer game style,
 \ref{sc:navigation} uses MORSE for assessing and tuning the performance of
 algorithms, and scenario~\ref{sc:generation}, while somewhat unique, still share
 similarities with Garrell et al., in that a model for object positions is
-trained on real-world data. Finally, the use-case presented in~\ref{sc:ci}
+trained on real-world data. Finally, the use case presented in~\ref{sc:ci}
 proposes a different approach, with a focus on continuous testing, and can
 arguably be seen as the natural progression of using simulators for evaluation,
 extended here to cover HRI scenarios.
@@ -540,7 +541,7 @@ scripts) and its concept of \emph{abstraction levels} that provides an effective
 way to focus simulation on a particular problem by hiding irrelevant simulation
 artifacts.
 
-These diverse use-cases support the idea that simulation is not only actually
+These diverse use cases support the idea that simulation is not only actually
 useful as a support tool for development of human-robot applications, but also
 \emph{enables} new research techniques in HRI. \emph{Continuous Integration}
 illustrates this point: while HRI experiments are considered as notoriously
@@ -621,7 +622,7 @@ address in parallel constraints stemming from \emph{robotic simulation} and
 tool. We are certainly not yet there, much remains to be imagined, refined and
 achieved.  Yet MORSE is already deployed in several institutions as a platform
 that efficiently supports research in human-robot interaction. As an open-source
-project, we strive for new use-cases and ideas, and warmly welcome researchers
+project, we strive for new use cases and ideas, and warmly welcome researchers
 that would like to join the effort.
 
 
