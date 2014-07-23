@@ -106,16 +106,16 @@ as common simulation platform.
       \label{fig|morse-hri}
 \end{figure}
 
-In the HRI literature, several distinct goals for
-the use of simulation can be discerned. We call these, without claim to 
-completeness, i) prototyping, ii) human modeling, iii) interactive simulation, 
-and, iv) predictive simulation.  
+In the HRI literature, several distinct goals for the use of simulation can be 
+discerned. We call these, without claim to completeness, i) prototyping, 
+ii) human modeling, iii) interactive simulation, and, iv) anticipatory simulation.  
 
 The most well-known use case is probably \emph{prototyping}: The use of a simulator
-to reconstruct and run experiments in a simulated target situation. Apart from
-convenience, for HRI this is often important to prevent injury, e.g. as in Henry
-et al.~\cite{henry2010learning}, where navigation in human crowds is prototyped in 
-simulation.
+to reconstruct and run experiments in a simulated target situation prior to real-world
+evaluation. Apart from convenience, reasons to do so include simulation of unsafe
+situations (e.g., navigation in narrow spaces~\cite{sisbot2007human,kidokoro2013will} or 
+crowds~\cite{henry2010learning}), and exploration of edge cases (e.g., humans 
+not paying attention, cf.~\cite{knepper2012pedestrian,guzzi2013human}).
 
 \emph{Human modeling} is one way of realizing human agents in simulation. For example,
 Garrell et al.~\cite{garrell2010model} present a pedestrian model which has been
@@ -135,7 +135,7 @@ as in Breazeal et al.~\cite{breazeal2013crowdsourcing}. This is also sometimes
 called ``crowd-sourcing'', though it can also be used with individuals or smaller
 groups, not just crowds.
 
-A very different use of simulation is \emph{predictive simulation}. Here, 
+A very different use of simulation is \emph{anticipatory simulation}. Here, 
 a simulator is used \emph{at runtime}, to
 be able to quickly explore the likely consequences of robotic actions. This
 uses simulation engines mainly to support spatial computations, e.g.,
