@@ -153,47 +153,23 @@ real-world data, or learned interactively through the simulator.
 
 \subsection{Software for HRI Simulation}
 
-When we mention simulators in the following, we refer to simulation engines with
-support for physically simulating robot kinematics and dynamics, as well as
-physical objects in the environment, and where the control and sensor interface
-is close to or the same as it is on real robots. In this paper, we beside
-only consider engines that support rendering, animation and control of human agents
-suitable for HRI, and which have been actually used in this context (while many
-engines could theoretically support this use case, few of them have actually
-demonstrated it). For the interested reader, a broader overview of research in
-robotic simulation is provided in~\cite{Ando2010}.
+Software used for HRI simulation is currently fairly diverse. Again, we can
+discern a distinction according to the use cases. Prototyping work often uses
+``standard'' robot simulators such as USARSim (Lewis~\etal\cite{lewis2007usarsim}), 
+(commonly used for rescue robotics applications but also beyond), or Gazebo 
+(Koenig and Howard~\cite{Koenig2004}), though Gazebo's human agent support
+is currently limited, and, of course, MORSE~\cite{morse_simpar_2012}. 
 
-Besides MORSE, simulators with explicit support for controlling a human agent
-include USARSim (Lewis~\etal\cite{lewis2007usarsim}), which is commonly used in
-the field of rescue robotics and in dozens of HRI studies, and, to a
-lesser extend, experiments with character animation have been developed in the
-widely-used simulator Gazebo (Koenig and Howard~\cite{Koenig2004}).
+In contrast, work in models or more advanced use cases such as interactive or
+anticipatory simulation currently uses custom software -- this is true for all
+of the papers cited in the previous sections at least. The pedestrian modeling
+community seems to share some tools, e.g., the work by Treuille et 
+al~\cite{treuille2006continuum} is known to have been re-used, but it has no 
+connection to robot simulators.
 
-
-%Note, however, that USARSim and MORSE are quite similar technically, in that
-%both are based on an underlying game engine (the Unreal Tournament Development
-%
-%respectively), which has been extended with robot actuator and sensor models,
-%and both support control through common middlewares. We prefer MORSE for its
-%fully open source approach, and some other technical differences (see next
-%section for more details), but we believe that due to the overwhelming
-%similarities most, if not all, requirements and/or conclusions identified would
-%also apply to work using USARSim.
-
-All of these simulators are based on game engines (the Blender Game Engine,
-Unreal Tournament Development Kit and Ogre3D, respectively). While their
-built-in support for human models varies, all of these engines require the
-developer to specify the agents' behavior in detail. In practice, this limits
-human agent behaviors to relatively simple motions and interactions, and perhaps
-not surprisingly, most HRI simulations so far are carried out either with
-algorithmically-defined automatic human behaviors (typically, simulation of
-crowds or
-pedestrians) or in
-\emph{tele-operation} settings, where only the robot and the environment, but
-not the human agent, are actually simulated.
-
-In contrast, current work on embodied virtual agents (EVA) usually provides
-higher-level functionality, such as simulated emotion dynamics, behavior
+Both standard robot simulators and pedestrian simulators use fairly coarse 
+human models. In contrast, work in the Embodied Virtual Agent (EVA) community
+usually provideshigher-level functionality, such as simulated emotion dynamics, behavior
 generation based on action primitives, conversational dialogue systems, and up
 to cognitive simulations. However, integrating these into a coherent system with
 an acceptable interface remains challenging~\cite{gratch2002creating}. We do not
